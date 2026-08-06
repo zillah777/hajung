@@ -1,0 +1,551 @@
+{
+  "Navigation": {
+    "brandName": "HAJUNG",
+    "kanji": "하정",
+    "subtitle": "SEOUL • IZAKAYA & FUSION DINING",
+    "experience": "Experience",
+    "menu": "Menu",
+    "gallery": "Gallery",
+    "story": "About",
+    "about": "About",
+    "home": "Home",
+    "location": "Location",
+    "bookTable": "Book a Table",
+    "language": "Language"
+  },
+  "Hero": {
+    "badge": "BORAMAE-RO, GWANAK-GU • KOREAN IZAKAYA & FUSION DINING",
+    "titleLine1": "THE ART OF",
+    "titleHighlight": "JAPANESE SILENCE",
+    "titleLine2": "IN THE HEART OF SEOUL",
+    "subtitle": "A culinary sanctuary where Kaiseki traditions, fresh sashimi, and artisan spirits celebrate seasonal purity.",
+    "ctaBook": "Reserve an Experience",
+    "ctaMenu": "Explore the Menu",
+    "soundToggle": "Soundscape: Enabled",
+    "scrollDown": "Scroll to discover"
+  },
+  "Experience": {
+    "tagline": "CULINARY CONCEPT",
+    "title": "Silence as a Gastronomic Language",
+    "paragraph1": "HAJUNG (하정) is born at the intersection of Kyoto's mindful Omakase traditions and Gangnam's avant-garde energy. Architected with dark obsidian stone, Yakisugi charred wood, and serene lighting.",
+    "paragraph2": "Every dish is an ephemeral poem. We strictly honor micro-seasonality (Shun), hand-selecting pristine seafood air-flown every morning from Tokyo's Toyosu Market and Jeju Island's deep waters.",
+    "pillar1Title": "Shokunin Craftsmanship",
+    "pillar1Desc": "Millimetric precision cuts executed with hand-forged Sakai steel knives, honoring ancestral traditions.",
+    "pillar2Title": "Binchotan Charcoal Fire",
+    "pillar2Desc": "Seared at extreme temperatures using organic Korean oak charcoal to delicately infuse a subtle smoky aroma.",
+    "pillar3Title": "Artisanal Ceramics",
+    "pillar3Desc": "Bespoke pottery hand-molded by master ceramic artists from Bizen and Yeoju to elevate every single bite."
+  },
+  "Menu": {
+    "tagline": "AUTHENTIC HAJUNG MENU",
+    "title": "Artisanal Gastronomy & Traditional Spirits",
+    "subtitle": "Explore our official menu featuring signature main dishes, handcrafted sides, and a curated selection of Korean and Japanese spirits.",
+    "tabs": {
+      "mains": "Main Dishes",
+      "sides": "Side Dishes",
+      "liquors": "Spirits & Liquors",
+      "drinks": "Highballs & Beers"
+    },
+    "currency": "KRW",
+    "viewDetail": "View detail",
+    "chefSelection": "Chef's Signature",
+    "glutenFree": "Gluten Free",
+    "popular": "Popular",
+    "limited": "Limited Quantity",
+    "spicy": "Spicy",
+    "modalTastingNotes": "Tasting Notes",
+    "modalIngredients": "Key Ingredients",
+    "modalPairing": "Suggested Pairing",
+    "modalClose": "Close",
+    "modalBookThis": "Reserve to taste this dish",
+    "items": {
+      "mains": [
+        {
+          "id": "m1",
+          "name": "Assorted Sashimi (Modum Sashimi)",
+          "description": "A premium selection of daily fresh white fish sashimi arranged elegantly.",
+          "image": "/images/hajung/20250329_181930.jpg",
+          "badge": "Popular"
+        },
+        {
+          "id": "m2",
+          "name": "Salmon Sashimi",
+          "description": "Freshly sliced premium salmon, rich and melt-in-your-mouth tender.",
+          "image": "/images/hajung/upload_8d0d8e64498bfa646bb20e0b8989103a.jpeg"
+        },
+        {
+          "id": "m3",
+          "name": "Potato Croquettes",
+          "description": "Crispy deep-fried potato croquettes served with a delicate cream sauce.",
+          "image": "/images/hajung/5e6d545e-5f75-4e13-923e-5905909e2218.jpeg"
+        },
+        {
+          "id": "m4",
+          "name": "Crispy Pork Tonkatsu",
+          "description": "Perfectly fried pork cutlet with a golden crispy panko crust, served with fresh cabbage salad.",
+          "image": "/images/hajung/upload_37a599e8493aa710f669bab3644a3453.jpeg"
+        },
+        {
+          "id": "m5",
+          "name": "Hajung Noodle Soup (Ramen)",
+          "description": "A comforting hot bowl of noodles in a rich savory broth topped with tender pork slices and scallions.",
+          "image": "/images/hajung/upload_8e356c423ecc95a803e0318118ac0231.jpeg"
+        },
+        {
+          "id": "y1",
+          "name": "Smoked Pork Belly Skewer (Yakitori)",
+          "description": "Charcoal-grilled pork belly skewer. Smoky, juicy and tender.",
+          "image": "/images/hajung/upload_1fc1fc67c6c3757b2b1321fb38bed9ca.jpg"
+        },
+        {
+          "id": "y2",
+          "name": "Spicy Pork Neck Skewer — Mala",
+          "description": "Pork neck skewer seasoned with a bold Mala spice blend. Spicy.",
+          "badge": "Spicy"
+        },
+        {
+          "id": "y3",
+          "name": "Wasabi Chicken Breast Skewer",
+          "description": "Juicy chicken breast skewer finished with a sharp wasabi glaze."
+        },
+        {
+          "id": "y4",
+          "name": "Pollack Fish Skewer (Myeongtae)",
+          "description": "Classic grilled Pollack fish skewer, lightly seasoned."
+        },
+        {
+          "id": "y5",
+          "name": "Extra — Avocado",
+          "description": "Fresh avocado add-on for your skewers."
+        },
+        {
+          "id": "y6",
+          "name": "Extra — Potato",
+          "description": "Grilled potato add-on for your skewers."
+        },
+        {
+          "id": "y7",
+          "name": "Extra — Nori Seaweed",
+          "description": "Crispy roasted nori seaweed add-on."
+        },
+        {
+          "id": "y8",
+          "name": "Extra — Cucumber",
+          "description": "Fresh cucumber add-on."
+        },
+        {
+          "id": "h1",
+          "name": "Beef Gopchang Stew — Hot Pot (2–3p)",
+          "description": "Rich hot pot with beef tripe (gopchang) and seasonal vegetables. Serves 2–3.",
+          "badge": "Popular",
+          "image": "/images/hajung/upload_0fa78be00bb97837fc8341f441acef52.jpeg"
+        },
+        {
+          "id": "h2",
+          "name": "Spicy Naganne Stew — Hot Pot (2–3p)",
+          "description": "Intense spicy stew in the Naganne style. Serves 2–3.",
+          "badge": "Spicy"
+        },
+        {
+          "id": "h3",
+          "name": "Spicy Whole Chicken — Dak Hanmari (2–3p)",
+          "description": "Whole chicken simmered in spicy aromatic broth. Serves 2–3.",
+          "badge": "Spicy"
+        },
+        {
+          "id": "h4",
+          "name": "Tofu Nabe — Hot Pot (2–3p)",
+          "description": "Comforting Japanese-style tofu hot pot. Serves 2–3."
+        },
+        {
+          "id": "h5",
+          "name": "Suyuk Jeongol — Korean Stew (2–3p)",
+          "description": "Traditional Korean braised beef and vegetable stew. Serves 2–3."
+        },
+        {
+          "id": "i1",
+          "name": "Yukhoe — Korean Beef Tartare",
+          "description": "Fresh raw beef tartare seasoned with sesame oil and Korean pear.",
+          "image": "/images/hajung/df876bd1-1fe9-4245-bd3e-683b1a3df60c.jpeg"
+        },
+        {
+          "id": "i2",
+          "name": "Suyuk Bossam — Boiled Pork",
+          "description": "Tender slow-boiled pork served with kimchi and cabbage wraps.",
+          "image": "/images/hajung/upload_c7336c8f4ea14cd51af7dd212da745b9.jpeg"
+        },
+        {
+          "id": "i3",
+          "name": "Spicy Karaage",
+          "description": "Japanese-style fried chicken with a bold spicy kick.",
+          "badge": "Spicy"
+        },
+        {
+          "id": "i4",
+          "name": "Steamed Chicken with Fish Sauce",
+          "description": "Tender steamed chicken drizzled with savory fish sauce dressing."
+        },
+        {
+          "id": "i5",
+          "name": "Brisket Tteokbokki",
+          "description": "Spicy rice cakes stir-fried with sliced beef brisket.",
+          "badge": "Spicy"
+        },
+        {
+          "id": "i6",
+          "name": "Shrimp & Gopchang Stir-fry",
+          "description": "Succulent shrimp sautéed with beef tripe in a savory sauce."
+        },
+        {
+          "id": "i7",
+          "name": "Creamy Pasta",
+          "description": "House-made creamy pasta with a Korean-Japanese fusion touch.",
+          "image": "/images/hajung/upload_03204b243b4bf6159d0a91e7129d5f44.jpeg"
+        },
+        {
+          "id": "i8",
+          "name": "Cold Soba Noodles",
+          "description": "Chilled buckwheat soba served with a light dipping broth."
+        },
+        {
+          "id": "i9",
+          "name": "Cold Noodles with Beef Brisket",
+          "description": "Refreshing cold noodles topped with thin brisket slices."
+        },
+        {
+          "id": "i10",
+          "name": "Spicy Stir-fried Octopus",
+          "description": "Tender octopus wok-tossed in a bold gochujang sauce.",
+          "badge": "Spicy"
+        }
+      ],
+      "sides": [
+        {
+          "id": "s1",
+          "name": "Sesame Cabbage Salad (2 servings)",
+          "description": "Crisp cabbage salad dressed with sesame oil and seeds."
+        },
+        {
+          "id": "s2",
+          "name": "Chicken Karaage",
+          "description": "Classic Japanese-style crispy fried chicken bites."
+        },
+        {
+          "id": "s3",
+          "name": "Stir-fried Octopus",
+          "description": "Tender octopus lightly stir-fried with fresh vegetables."
+        },
+        {
+          "id": "s4",
+          "name": "Fried Cauliflower",
+          "description": "Golden crispy battered cauliflower florets."
+        },
+        {
+          "id": "s5",
+          "name": "Corn with Mayonnaise",
+          "description": "Sweet grilled corn tossed in Japanese-style mayo."
+        },
+        {
+          "id": "s6",
+          "name": "Cherry Tomatoes",
+          "description": "Fresh sweet cherry tomatoes. Light and refreshing."
+        },
+        {
+          "id": "s7",
+          "name": "Strawberry Set",
+          "description": "Seasonal fresh strawberry dessert set."
+        },
+        {
+          "id": "s8",
+          "name": "Extra Noodles (Sari)",
+          "description": "Additional noodle add-on for hot pots."
+        },
+        {
+          "id": "s9",
+          "name": "Extra for Mala Tang",
+          "description": "Additional ingredient add-on for the Mala Tang hot pot."
+        },
+        {
+          "id": "s10",
+          "name": "Steamed Rice",
+          "description": "Freshly steamed plain white rice."
+        }
+      ],
+      "liquors": [
+        {
+          "id": "l1",
+          "name": "Hwayo Soju 25°",
+          "description": "Premium Soju distilled from 100% Korean rice. Smooth and refined.",
+          "badge": "Premium"
+        },
+        {
+          "id": "l2",
+          "name": "Ilpum Jinro 25°",
+          "description": "Classic premium Jinro Soju. Smooth, clean finish.",
+          "badge": "Premium"
+        },
+        {
+          "id": "l3",
+          "name": "Saeim Gin 25° (375ml)",
+          "description": "Korean craft gin with delicate botanical notes. Serve over ice."
+        },
+        {
+          "id": "l4",
+          "name": "Toki Whisky 15° (375ml)",
+          "description": "Suntory Toki Japanese Whisky. Light, floral and approachable."
+        },
+        {
+          "id": "l5",
+          "name": "Hwanggeum Bori Whisky 17° (375ml)",
+          "description": "Korean golden barley whisky. Fragrant with a warming finish."
+        },
+        {
+          "id": "l6",
+          "name": "Shochu Soko 40° (200ml)",
+          "description": "Premium Japanese Shochu. Sophisticated and smoky character.",
+          "badge": "Premium"
+        },
+        {
+          "id": "l7",
+          "name": "Jirisan Gamsangju 13° (370ml)",
+          "description": "Traditional Korean Yakju rice wine. Mild and elegantly sweet.",
+          "badge": "Traditional"
+        },
+        {
+          "id": "l8",
+          "name": "Naro 11° (375ml)",
+          "description": "Traditional Korean Yakju. Fruity, refreshing with a light body.",
+          "badge": "Traditional"
+        },
+        {
+          "id": "l9",
+          "name": "Saranghae Apple Wine 12° (300ml)",
+          "description": "Korean fruit wine made from 100% Fuji apples. Sweet and aromatic."
+        },
+        {
+          "id": "l10",
+          "name": "Yuzu Premium Wine 8° (500ml)",
+          "description": "Premium fruit wine crafted from Goheung yuzu. Light and citrusy."
+        }
+      ],
+      "drinks": [
+        {
+          "id": "d1",
+          "name": "Draft Beer",
+          "description": "Freshly tapped local draft beer. Crisp and refreshing."
+        },
+        {
+          "id": "d2",
+          "name": "Suntory Draft Beer",
+          "description": "Premium Japanese Suntory lager on draft."
+        },
+        {
+          "id": "d3",
+          "name": "Stella Artois Draft",
+          "description": "Classic Belgian Stella Artois on draft."
+        },
+        {
+          "id": "d4",
+          "name": "Chamisul / Saero / Jinro",
+          "description": "Korea's most popular soju brands served chilled."
+        },
+        {
+          "id": "d5",
+          "name": "Cheongha",
+          "description": "Delicate Korean rice wine. Lightly sweet with a clean finish."
+        },
+        {
+          "id": "d6",
+          "name": "Terra Beer",
+          "description": "Korean Terra lager. Light and refreshing."
+        },
+        {
+          "id": "d7",
+          "name": "Cass Beer",
+          "description": "Korean Cass lager. Clean, mild and easy-drinking."
+        },
+        {
+          "id": "d8",
+          "name": "Non-alcoholic Beer 330ml",
+          "description": "Full-flavor alcohol-free beer option."
+        },
+        {
+          "id": "d9",
+          "name": "Hendrick's Highball",
+          "description": "Hendrick's gin with premium tonic water over ice."
+        },
+        {
+          "id": "d10",
+          "name": "Suntory Highball",
+          "description": "Suntory whisky over ice, topped with soda water.",
+          "image": "/images/hajung/upload_6fbb77e91c191287de50d69042b5b83c.jpeg"
+        },
+        {
+          "id": "d11",
+          "name": "Johnnie Walker Black Highball",
+          "description": "JW Black Label whisky with soda and ice."
+        },
+        {
+          "id": "d12",
+          "name": "Peach Highball",
+          "description": "Fruity peach-infused highball. Refreshing and aromatic."
+        },
+        {
+          "id": "d13",
+          "name": "Earl Grey Highball",
+          "description": "Elegant Earl Grey tea highball. Floral and citrusy.",
+          "image": "/images/hajung/upload_8961bb7fd5950f2e09400c3cc7d4fb44.jpg"
+        },
+        {
+          "id": "d14",
+          "name": "Extra Shot",
+          "description": "Additional spirit shot added to your highball."
+        },
+        {
+          "id": "d15",
+          "name": "Hanra Tonic SET",
+          "description": "Hanra spirit + 2 tonic waters + ice + lemon."
+        },
+        {
+          "id": "d16",
+          "name": "Hwayo Tonic SET",
+          "description": "Hwayo Soju + 2 tonic waters + ice + lemon."
+        },
+        {
+          "id": "d17",
+          "name": "Ilpum Jinro Tonic SET",
+          "description": "Ilpum Jinro + 2 tonic waters + ice + lemon."
+        },
+        {
+          "id": "d18",
+          "name": "Coca-Cola 355ml",
+          "description": "Classic Coca-Cola, chilled."
+        },
+        {
+          "id": "d19",
+          "name": "Coca-Cola Zero 355ml",
+          "description": "Zero sugar Coca-Cola."
+        },
+        {
+          "id": "d20",
+          "name": "Sprite 355ml",
+          "description": "Refreshing lemon-lime soda."
+        },
+        {
+          "id": "d21",
+          "name": "Tonic Water 355ml",
+          "description": "Premium tonic water. Perfect with gin or soju."
+        }
+      ]
+    }
+  },
+  "Gallery": {
+    "tagline": "VISUAL EDITORIAL",
+    "title": "An Aesthetic Journey in Motion",
+    "subtitle": "Explore the architectural silence of our spaces and the millimetric precision of our creations.",
+    "viewFull": "View Full Image"
+  },
+  "Story": {
+    "tagline": "THE HAJUNG ESSENCE",
+    "title": "Quality. Warmth. Honest Prices.",
+    "aboutLabel": "OUR STORY",
+    "reviewsUnit": "reviews",
+    "soloWelcome": "Solo Diners Welcome",
+    "parkingAvail": "Parking Available",
+    "restaurantNameFull": "하정식당 (㗿靖食堂)",
+    "quote": "«Good food doesn't need to be complicated. It just needs to be made with care.»",
+    "chefName": "Koo Bonkwan",
+    "chefRole": "Head Chef & Founder",
+    "desc1": "HAJUNG is a neighborhood izakaya rooted in a simple belief: the best ingredients, prepared honestly, served with warmth. Nothing more, nothing less.",
+    "valuesLabel": "WHY HAJUNG",
+    "val1": "Every ingredient is hand-selected. Quality you can taste with every bite.",
+    "val2": "Solo, couple, or group — everyone is treated like a regular from day one.",
+    "val3": "Premium quality doesn't have to cost a fortune. We keep prices fair and honest.",
+    "val4": "A kitchen that runs with the discipline of professionals and the heart of a family.",
+    "pillars": {
+      "chef": {
+        "badge": "CHEF KOO BONKWAN",
+        "title": "Precision at the Knife",
+        "desc": "Chef Koo Bonkwan cuts every piece of fish himself — with patience, precision, and a deep respect for the ingredient. His knife is an extension of his philosophy: no shortcuts, no compromises.",
+        "tag1": "Hand-cut daily",
+        "tag2": "No shortcuts",
+        "tag3": "Ingredient-first"
+      },
+      "team": {
+        "badge": "THE HAJUNG TEAM",
+        "title": "A Kitchen Built on Trust",
+        "desc": "Behind every dish is a team that works in sync — quiet, focused, and proud of what they put on the plate. They cook like family because that's exactly what they are.",
+        "tag1": "Tight-knit crew",
+        "tag2": "Consistent quality",
+        "tag3": "Proud of every plate"
+      },
+      "ambience": {
+        "badge": "THE SPACE",
+        "title": "A Place to Stay a While",
+        "desc": "Warm light, wooden tables, the sound of the kitchen — Hajung is designed to feel like a place you can return to again and again. Come alone or bring everyone.",
+        "tag1": "Warm & unhurried",
+        "tag2": "Solo diners welcome",
+        "tag3": "Stay as long as you like"
+      }
+    }
+  },
+  "Location": {
+    "tagline": "LOCATION & HOURS",
+    "title": "하정식당 in Gwanak-gu, Seoul",
+    "addressTitle": "Address",
+    "addressLine1": "Boramae-ro 22, Bongcheon-dong, Gwanak-gu",
+    "addressLine2": "Seoul, South Korea (08720)",
+    "hoursTitle": "Opening Hours",
+    "lunchHours": "Mon–Fri: 17:30 – 01:00",
+    "dinnerHours": "Saturday: 17:00 – 01:00",
+    "contactTitle": "Contact",
+    "phone": "+82 10-5100-3623",
+    "email": "ladycocoon26@gmail.com",
+    "valet": "Parking available on site. Solo diners warmly welcomed (혼술 환영).",
+    "googleMapBtn": "Open in Google Maps",
+    "naverMapBtn": "Open in Naver Map (Seoul)"
+  },
+  "Reservation": {
+    "tagline": "RESERVATION",
+    "title": "Reserve Your Table",
+    "subtitle": "Call us or fill the form. We open Mon–Fri 17:30 and Saturday 17:00.",
+    "step1": "1. Date & Time",
+    "step2": "2. Space & Guests",
+    "step3": "3. Confirmation Details",
+    "dateLabel": "Select Date",
+    "timeLabel": "Select Seating",
+    "session1": "First Seating",
+    "session2": "Second Seating",
+    "session3": "Third Seating",
+    "session4": "Last Seating",
+    "processing": "PROCESSING…",
+    "guestsLabel": "Number of Guests",
+    "seatingLabel": "Seating Preference",
+    "counterSeating": "Omakase Chef's Counter (Live View)",
+    "privateRoom": "Private Kaiseki Room (4 - 8 Guests)",
+    "diningRoom": "Main Zen Dining Hall",
+    "namePlaceholder": "Your Full Name",
+    "emailPlaceholder": "Email Address",
+    "phonePlaceholder": "Phone Number with country code",
+    "dietaryLabel": "Dietary Restrictions or Allergies",
+    "confirmBtn": "Confirm Reservation",
+    "successTitle": "Reservation Confirmed!",
+    "successDesc": "We have sent your reservation details and access code to your email address.",
+    "closeBtn": "Got it"
+  },
+  "Footer": {
+    "brandTagline": "하정식당 (㏖靖食堂) — Gwanak-gu, Seoul.",
+    "navTitle": "Navigation",
+    "home": "Home",
+    "hoursTitle": "Hours",
+    "weekdayHours": "Mon–Fri: 17:30 – 01:00",
+    "saturdayHours": "Sat: 17:00 – 01:00",
+    "sundayNote": "Sun: Closed",
+    "address": "Boramae-ro 22, Bongcheon-dong, Gwanak-gu, Seoul",
+    "rights": "All rights reserved. HAJUNG.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "instagram": "Instagram",
+    "naver": "Naver Place"
+  }
+}

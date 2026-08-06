@@ -1,0 +1,41 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env*.local
+.env
+
+# Vercel
+.vercel
+
+# Raw Working Assets & Figma Files (Exceeds GitHub 100MB limit)
+*.fig
+*.bin
+/fig_extracted
+/temp_images
+/hajung pics
+qitchen_figma_strings.txt
+fig_strings.txt
+
+# System Files
+.DS_Store
+Thumbs.db
+

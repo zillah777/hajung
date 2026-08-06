@@ -1,0 +1,551 @@
+{
+  "Navigation": {
+    "brandName": "HAJUNG",
+    "kanji": "하정",
+    "subtitle": "서울 • 이자카야 & 퍼젬 요리",
+    "experience": "콘셉트",
+    "menu": "메뉴",
+    "gallery": "갤러리",
+    "story": "소개",
+    "about": "소개",
+    "home": "홈",
+    "location": "위치",
+    "bookTable": "예약하기",
+    "language": "언어"
+  },
+  "Hero": {
+    "badge": "보라매로, 관악구 • 한국 이자카야 & 퓨전 요리",
+    "titleLine1": "고요함과 미학이 만나는",
+    "titleHighlight": "모던 재패니즈 사일런스",
+    "titleLine2": "서울의 중심에서 경험하는 극상의 침묵",
+    "subtitle": "교토 카이세키의 고요한 전통, 정갈한 사시미, 전통 증류주가 어우러진 하정(하정)의 미식 공간.",
+    "ctaBook": "미식 경험 예약하기",
+    "ctaMenu": "시즌 메뉴 탐색",
+    "soundToggle": "사운드스케이프: 활성화",
+    "scrollDown": "스크롤하여 탐색"
+  },
+  "Experience": {
+    "tagline": "미식 콘셉트",
+    "title": "미학적 침묵, 미식의 새로운 언어",
+    "paragraph1": "하정(하정)은 교토의 고요한 오마카세 전통과 서울 강남의 현대적 감각이 만나는 성지입니다. 야키스기 탄화목과 묵직한 오비시디안 석재, 정갈한 조명으로 완성되었습니다.",
+    "paragraph2": "모든 요리는 계절의 시(詩)입니다. 도쿄 도요스 시장과 제주도의 청정 해역에서 매일 아침 직송되는 극상의 식재료로 미구조적인 미식을 선보입니다.",
+    "pillar1Title": "장인 정신 (쇼쿠닌)",
+    "pillar1Desc": "사카이에서 수작업으로 단조된 칼로 0.1mm 오차 없이 정교하게 컷팅하는 전통 기술.",
+    "pillar2Title": "비장탄 숯불 구이",
+    "pillar2Desc": "유기농 최고급 비장탄으로 식재료 본연의 은은한 향을 끌어올립니다.",
+    "pillar3Title": "작가 소장용 도자기",
+    "pillar3Desc": "비젠과 여주의 도예 명장들이 흙으로 도자한 단 하나뿐인 그릇에 담아내는 예술."
+  },
+  "Menu": {
+    "tagline": "하정 공식 메뉴",
+    "title": "장인 수제 요리 & 전통 증류주",
+    "subtitle": "하정의 대표 메인 요리, 수제 사이드, 엄선된 한국 및 일본의 시그니처 주류 메뉴입니다.",
+    "tabs": {
+      "mains": "메인 메뉴",
+      "sides": "사이드 메뉴",
+      "liquors": "증류주 & 약주",
+      "drinks": "하이볼 & 주류"
+    },
+    "currency": "KRW",
+    "viewDetail": "상세 보기",
+    "chefSelection": "셰프 추천",
+    "glutenFree": "글루텐 프리",
+    "popular": "인기 메뉴",
+    "limited": "한정 수량",
+    "spicy": "매콤함",
+    "modalTastingNotes": "테이스팅 노트",
+    "modalIngredients": "주요 식재료",
+    "modalPairing": "추천 페어링",
+    "modalClose": "닫기",
+    "modalBookThis": "이 코스로 예약하기",
+    "items": {
+      "mains": [
+        {
+          "id": "m1",
+          "name": "모듬 사시미",
+          "description": "매일 아침 공수해 신선한 제철 생선을 정교하게 썰어낸 프리미엄 모듬 사시미.",
+          "image": "/images/hajung/20250329_181930.jpg",
+          "badge": "인기"
+        },
+        {
+          "id": "m2",
+          "name": "연어 사시미",
+          "description": "입안에서 사르르 녹는 부드럽고 고소한 맛이 일품인 최상급 연어 사시미.",
+          "image": "/images/hajung/upload_8d0d8e64498bfa646bb20e0b8989103a.jpeg"
+        },
+        {
+          "id": "m3",
+          "name": "감자 고로케",
+          "description": "겉은 바삭하고 속은 부드러운 감자 고로케와 특제 크림 소스의 만남.",
+          "image": "/images/hajung/5e6d545e-5f75-4e13-923e-5905909e2218.jpeg"
+        },
+        {
+          "id": "m4",
+          "name": "수제 돈카츠",
+          "description": "바삭한 빵가루를 입혀 튀겨낸 두툼하고 육즙 가득한 수제 돼지고기 돈카츠와 양배추 샐러드.",
+          "image": "/images/hajung/upload_37a599e8493aa710f669bab3644a3453.jpeg"
+        },
+        {
+          "id": "m5",
+          "name": "하정 온면 (라면)",
+          "description": "부드러운 차슈와 아삭한 대파를 듬뿍 얹고, 깊고 구수한 육수로 맛을 낸 하정식당의 대표 온면.",
+          "image": "/images/hajung/upload_8e356c423ecc95a803e0318118ac0231.jpeg"
+        },
+        {
+          "id": "y1",
+          "name": "훈제 삼겹살 꼬치 (야키토리)",
+          "description": "숯불에 구운 삼겹살 꼬치. 훈제향이 풍부하고 육즙이 살아있습니다.",
+          "image": "/images/hajung/upload_1fc1fc67c6c3757b2b1321fb38bed9ca.jpg"
+        },
+        {
+          "id": "y2",
+          "name": "마라 목살 꼬치",
+          "description": "마라 향신료로 양념한 목살 꼬치. 알싸하고 향긋한 매운맛.",
+          "badge": "매운맛"
+        },
+        {
+          "id": "y3",
+          "name": "와사비 닭가슴살 꼬치",
+          "description": "촉촉한 닭가슴살에 와사비 글레이즈를 입힌 꼬치."
+        },
+        {
+          "id": "y4",
+          "name": "명태 꼬치 (Myeongtae)",
+          "description": "전통 방식으로 구운 명태 꼬치. 담백하고 깔끔한 맛."
+        },
+        {
+          "id": "y5",
+          "name": "추가 — 아보카도",
+          "description": "꼬치에 곁들이는 신선한 아보카도 추가."
+        },
+        {
+          "id": "y6",
+          "name": "추가 — 감자",
+          "description": "꼬치에 곁들이는 구운 감자 추가."
+        },
+        {
+          "id": "y7",
+          "name": "추가 — 김 (Nori)",
+          "description": "바삭하게 구운 김 추가."
+        },
+        {
+          "id": "y8",
+          "name": "추가 — 오이",
+          "description": "신선한 오이 추가."
+        },
+        {
+          "id": "h1",
+          "name": "곱창나베 (2–3인)",
+          "description": "쫄깃한 소곱창과 제철 채소가 가득한 나베. 2–3인용.",
+          "badge": "인기",
+          "image": "/images/hajung/upload_0fa78be00bb97837fc8341f441acef52.jpeg"
+        },
+        {
+          "id": "h2",
+          "name": "나가네 나베 (2–3인)",
+          "description": "나가네 스타일의 강렬한 매운 나베. 2–3인용.",
+          "badge": "매운맛"
+        },
+        {
+          "id": "h3",
+          "name": "닭 한마리 나베 (2–3인)",
+          "description": "향긋한 매운 육수에 통닭을 통째로 넣은 나베. 2–3인용.",
+          "badge": "매운맛"
+        },
+        {
+          "id": "h4",
+          "name": "두부 나베 (2–3인)",
+          "description": "든든하고 깔끔한 일본식 두부 나베. 2–3인용."
+        },
+        {
+          "id": "h5",
+          "name": "수육전골 (2–3인)",
+          "description": "한국 전통 방식의 소고기와 채소 전골. 2–3인용."
+        },
+        {
+          "id": "i1",
+          "name": "육회",
+          "description": "참기름과 달콤한 배로 버무린 신선한 소고기 육회.",
+          "image": "/images/hajung/df876bd1-1fe9-4245-bd3e-683b1a3df60c.jpeg"
+        },
+        {
+          "id": "i2",
+          "name": "수육보쌈",
+          "description": "부드럽게 삶은 돼지고기와 김치, 양배추쌈 곁들임.",
+          "image": "/images/hajung/upload_c7336c8f4ea14cd51af7dd212da745b9.jpeg"
+        },
+        {
+          "id": "i3",
+          "name": "매운 가라아게",
+          "description": "일본식 튀긴 치킨에 매운 소스를 곁들인 메뉴.",
+          "badge": "매운맛"
+        },
+        {
+          "id": "i4",
+          "name": "어향배추찜 (닭찜)",
+          "description": "부드럽게 찐 닭고기에 어향 소스를 뿌린 요리."
+        },
+        {
+          "id": "i5",
+          "name": "차돌 떡볶이",
+          "description": "차돌박이와 함께 볶은 매운 떡볶이.",
+          "badge": "매운맛"
+        },
+        {
+          "id": "i6",
+          "name": "새우 곱창볶음",
+          "description": "탱탱한 새우와 소곱창을 진한 소스에 볶은 요리."
+        },
+        {
+          "id": "i7",
+          "name": "크림파스타",
+          "description": "한국-일본 퓨전 감성의 부드러운 크림파스타.",
+          "image": "/images/hajung/upload_03204b243b4bf6159d0a91e7129d5f44.jpeg"
+        },
+        {
+          "id": "i8",
+          "name": "차가운 소바",
+          "description": "가볍고 시원한 쯔유와 함께 즐기는 냉소바."
+        },
+        {
+          "id": "i9",
+          "name": "차돌 냉면",
+          "description": "얇게 썬 차돌박이를 올린 시원한 냉면."
+        },
+        {
+          "id": "i10",
+          "name": "불오징어볶음",
+          "description": "쫄깃한 오징어를 진한 고추장 소스에 볶은 요리.",
+          "badge": "매운맛"
+        }
+      ],
+      "sides": [
+        {
+          "id": "s1",
+          "name": "깨 양배추 샐러드 (2인분)",
+          "description": "참기름과 깨로 버무린 아삭한 양배추 샐러드. 2인분."
+        },
+        {
+          "id": "s2",
+          "name": "치킨 가라아게",
+          "description": "일본식 바삭한 닭고기 튀김."
+        },
+        {
+          "id": "s3",
+          "name": "오징어볶음",
+          "description": "신선한 채소와 함께 볶은 오징어."
+        },
+        {
+          "id": "s4",
+          "name": "튀김 콜리플라워",
+          "description": "황금빛으로 바삭하게 튀긴 콜리플라워."
+        },
+        {
+          "id": "s5",
+          "name": "마약옥수수",
+          "description": "일본식 마요네즈를 곁들인 구운 옥수수."
+        },
+        {
+          "id": "s6",
+          "name": "방울토마토",
+          "description": "신선하고 달콤한 방울토마토. 가볍고 상큼합니다."
+        },
+        {
+          "id": "s7",
+          "name": "딸기세트",
+          "description": "제철 신선 딸기 디저트 세트."
+        },
+        {
+          "id": "s8",
+          "name": "사리 (면 추가)",
+          "description": "나베에 추가할 수 있는 사리 면."
+        },
+        {
+          "id": "s9",
+          "name": "마라탕 추가",
+          "description": "마라탕 나베를 위한 추가 재료."
+        },
+        {
+          "id": "s10",
+          "name": "공기밥",
+          "description": "갓 지은 따뜻한 흰쌀밥."
+        }
+      ],
+      "liquors": [
+        {
+          "id": "l1",
+          "name": "화요 25도",
+          "description": "100% 국산 쌀로 증류한 프리미엄 소주. 부드럽고 깔끔합니다.",
+          "badge": "프리미엄"
+        },
+        {
+          "id": "l2",
+          "name": "일품진로 25도",
+          "description": "클래식 프리미엄 진로 소주. 부드럽고 깔끔한 마무리.",
+          "badge": "프리미엄"
+        },
+        {
+          "id": "l3",
+          "name": "새임진 25도 (375ml)",
+          "description": "섬세한 보태니컬 향의 한국 수제 진. 얼음과 함께 즐기세요."
+        },
+        {
+          "id": "l4",
+          "name": "도키 위스키 15도 (375ml)",
+          "description": "산토리 토키 일본 위스키. 가볍고 꽃향기 나는 맛."
+        },
+        {
+          "id": "l5",
+          "name": "황금보리 위스키 17도 (375ml)",
+          "description": "한국 황금보리 위스키. 향긋하고 부드러운 여운."
+        },
+        {
+          "id": "l6",
+          "name": "추하이 소코 40도 (200ml)",
+          "description": "프리미엄 일본 소주. 세련되고 은은한 스모키 캐릭터.",
+          "badge": "프리미엄"
+        },
+        {
+          "id": "l7",
+          "name": "지리산 감양주 13도 (370ml)",
+          "description": "은은한 단맛의 전통 한국 약주.",
+          "badge": "전통주"
+        },
+        {
+          "id": "l8",
+          "name": "나로 11도 (375ml)",
+          "description": "가볍고 과일향 나는 전통 한국 약주.",
+          "badge": "전통주"
+        },
+        {
+          "id": "l9",
+          "name": "사랑해 12도 (300ml)",
+          "description": "후지 사과 100%로 만든 한국 과실주. 달콤하고 향기롭습니다."
+        },
+        {
+          "id": "l10",
+          "name": "고흥유자주 8도 (500ml)",
+          "description": "고흥 유자로 만든 프리미엄 과실주. 가볍고 상큼합니다."
+        }
+      ],
+      "drinks": [
+        {
+          "id": "d1",
+          "name": "생맥주",
+          "description": "신선하게 뽑은 생맥주. 시원하고 상쾌합니다."
+        },
+        {
+          "id": "d2",
+          "name": "산토리 생맥주",
+          "description": "프리미엄 일본 산토리 생맥주."
+        },
+        {
+          "id": "d3",
+          "name": "스텔라 생맥주",
+          "description": "클래식 벨기에 스텔라 아르투아 생맥주."
+        },
+        {
+          "id": "d4",
+          "name": "참이슬 / 새로 / 진로",
+          "description": "한국에서 가장 사랑받는 소주 브랜드. 잘 차갑게 서빙됩니다."
+        },
+        {
+          "id": "d5",
+          "name": "청하",
+          "description": "부드럽고 은은한 단맛의 한국 청주."
+        },
+        {
+          "id": "d6",
+          "name": "테라",
+          "description": "한국 테라 라거. 가볍고 시원합니다."
+        },
+        {
+          "id": "d7",
+          "name": "카스",
+          "description": "한국 카스 라거. 부드럽고 마시기 편합니다."
+        },
+        {
+          "id": "d8",
+          "name": "무알콜 맥주 330ml",
+          "description": "풍부한 맛의 알코올 없는 맥주 옵션."
+        },
+        {
+          "id": "d9",
+          "name": "헨드릭스 하이볼",
+          "description": "헨드릭스 진에 프리미엄 토닉워터와 얼음."
+        },
+        {
+          "id": "d10",
+          "name": "산토리 하이볼",
+          "description": "산토리 위스키에 탄산수와 얼음.",
+          "image": "/images/hajung/upload_6fbb77e91c191287de50d69042b5b83c.jpeg"
+        },
+        {
+          "id": "d11",
+          "name": "조니워커 블랙 하이볼",
+          "description": "조니워커 블랙 라벨 위스키에 소다와 얼음."
+        },
+        {
+          "id": "d12",
+          "name": "복숭아 하이볼",
+          "description": "과일향 복숭아 하이볼. 상큼하고 향기롭습니다."
+        },
+        {
+          "id": "d13",
+          "name": "얼그레이 하이볼",
+          "description": "우아한 얼그레이 티 하이볼. 꽃향기와 시트러스.",
+          "image": "/images/hajung/upload_8961bb7fd5950f2e09400c3cc7d4fb44.jpg"
+        },
+        {
+          "id": "d14",
+          "name": "샷 추가",
+          "description": "하이볼에 추가할 수 있는 스피릿 한 잔."
+        },
+        {
+          "id": "d15",
+          "name": "한라토닉 SET",
+          "description": "한라 소주 + 토닉워터 2개 + 얼음 + 레몬."
+        },
+        {
+          "id": "d16",
+          "name": "화요 토닉 SET",
+          "description": "화요 소주 + 토닉워터 2개 + 얼음 + 레몬."
+        },
+        {
+          "id": "d17",
+          "name": "일품진로 토닉 SET",
+          "description": "일품진로 + 토닉워터 2개 + 얼음 + 레몬."
+        },
+        {
+          "id": "d18",
+          "name": "콜라 355ml",
+          "description": "시원한 클래식 코카콜라."
+        },
+        {
+          "id": "d19",
+          "name": "제로콜라 355ml",
+          "description": "무설탕 코카콜라 제로."
+        },
+        {
+          "id": "d20",
+          "name": "스프라이트 355ml",
+          "description": "상큼한 레몬라임 탄산음료."
+        },
+        {
+          "id": "d21",
+          "name": "토닉워터 355ml",
+          "description": "프리미엄 토닉워터. 진이나 소주와 잘 어울립니다."
+        }
+      ]
+    }
+  },
+  "Gallery": {
+    "tagline": "비주얼 에디토리얼",
+    "title": "침묵 속에서 펼쳐지는 정갈한 예술",
+    "subtitle": "하정의 건축적 고요함과 메뉴 하나하나에 담긴 정밀함을 사진으로 감상하세요.",
+    "viewFull": "원본 사진 보기"
+  },
+  "Story": {
+    "tagline": "하정식당의 정수",
+    "title": "품질. 따뜻함. 정직한 가격.",
+    "aboutLabel": "하정 이야기",
+    "reviewsUnit": "리뷰",
+    "soloWelcome": "혼술 환영",
+    "parkingAvail": "주차 가능",
+    "restaurantNameFull": "하정식당 (㗿靖食堂)",
+    "quote": "«좋은 음식은 복잡할 필요가 없습니다. 다만 정성을 다해 만들어야 할 뿐입니다.»",
+    "chefName": "구본관",
+    "chefRole": "총괄 셰프 & 창업자",
+    "desc1": "하정식당은 하나의 단순한 믿음에서 출발한 동네 이자카야입니다. 최상의 재료를 정직하게 준비하고, 따뜻함으로 대접합니다. 그 이상도 이하도 아닙니다.",
+    "valuesLabel": "왜 하정인가",
+    "val1": "모든 재료는 매일 직접 고릅니다. 한 입 한 입에서 느껴지는 품질.",
+    "val2": "혼자든, 커플이든, 단체든 — 누구나 처음부터 단골처럼 대접받습니다.",
+    "val3": "최고의 품질이 꼭 비쌀 필요는 없습니다. 가격은 언제나 정직하고 합리적입니다.",
+    "val4": "전문가의 규율과 가족의 따뜻한 마음으로 운영되는 주방.",
+    "pillars": {
+      "chef": {
+        "badge": "구본관 셰프",
+        "title": "칼끝의 정밀함",
+        "desc": "구본관 셰프는 모든 생선 한 점을 직접 손질합니다 — 인내와 정밀함, 그리고 식재료에 대한 깊은 존중으로. 그의 칼은 그의 철학의 연장입니다. 지름길도, 타협도 없습니다.",
+        "tag1": "매일 직접 손질",
+        "tag2": "타협 없음",
+        "tag3": "재료 우선"
+      },
+      "team": {
+        "badge": "하정 팀",
+        "title": "신뢰로 세워진 주방",
+        "desc": "모든 요리 뒤에는 한 팀이 있습니다 — 조용히, 집중하며, 자신이 내놓는 음식에 자부심을 가진. 그들은 가족처럼 요리합니다. 왜냐하면 그게 바로 그들이기 때문입니다.",
+        "tag1": "똘똘 뭉친 팀",
+        "tag2": "일관된 품질",
+        "tag3": "모든 요리에 자부심"
+      },
+      "ambience": {
+        "badge": "공간",
+        "title": "오래 머물고 싶은 곳",
+        "desc": "따뜻한 조명, 나무 테이블, 주방의 소리 — 하정식당은 다시 또 찾고 싶은 공간으로 설계되었습니다. 혼자 오셔도, 모두 데려오셔도 좋습니다.",
+        "tag1": "따뜻하고 여유로운",
+        "tag2": "혼술 환영",
+        "tag3": "원하는 만큼 머무세요"
+      }
+    }
+  },
+  "Location": {
+    "tagline": "위치 및 안내",
+    "title": "하정식당 — 관악구 봉천동",
+    "addressTitle": "주소",
+    "addressLine1": "서울시 관악구 봉천동 보라매로 22, 1층",
+    "addressLine2": "(우편번호 08720)",
+    "hoursTitle": "영업 시간",
+    "lunchHours": "평일: 17:30 – 01:00",
+    "dinnerHours": "토요일: 17:00 – 01:00",
+    "contactTitle": "문의",
+    "phone": "+82 10-5100-3623",
+    "email": "ladycocoon26@gmail.com",
+    "valet": "주차 가능 · 혼술 환영",
+    "googleMapBtn": "구글 맵으로 열기",
+    "naverMapBtn": "네이버 지도(서울) 열기"
+  },
+  "Reservation": {
+    "tagline": "예약",
+    "title": "하정식당 예약",
+    "subtitle": "전화하시거나 양식을 작성하세요. 평일 17:30, 토요일 17:00 오픈.",
+    "step1": "1. 날짜 및 시간",
+    "step2": "2. 좌석 및 인원",
+    "step3": "3. 고객 정보 입력",
+    "dateLabel": "예약 날짜 선택",
+    "timeLabel": "시간 타임 선택",
+    "session1": "첫 번째 타임",
+    "session2": "두 번째 타임",
+    "session3": "세 번째 타임",
+    "session4": "마지막 타임",
+    "processing": "제올 중…",
+    "guestsLabel": "예약 인원",
+    "seatingLabel": "선호 좌석",
+    "counterSeating": "오마카세 셰프 카운터 (라이브 뷰)",
+    "privateRoom": "프라이빗 카이세키 룸 (4 - 8인)",
+    "diningRoom": "메인 젠 다이닝 홀",
+    "namePlaceholder": "성함 (성함 전체)",
+    "emailPlaceholder": "이메일 주소",
+    "phonePlaceholder": "연락처 (국가번호 포함)",
+    "dietaryLabel": "알레르기 및 못 드시는 식재료",
+    "confirmBtn": "예약 확정하기",
+    "successTitle": "예약이 성공적으로 확정되었습니다!",
+    "successDesc": "입력하신 이메일로 예약 내역과 입장 안내 코드를 발송해 드렸습니다.",
+    "closeBtn": "확인"
+  },
+  "Footer": {
+    "brandTagline": "하정식당 (㏖靖食堂) — 관악구, 서울.",
+    "navTitle": "메뉴",
+    "home": "홈",
+    "hoursTitle": "영업시간",
+    "weekdayHours": "평일: 17:30 – 01:00",
+    "saturdayHours": "토요일: 17:00 – 01:00",
+    "sundayNote": "일요일: 휴무",
+    "address": "서울시 관악구 봉천동 보라매로 22",
+    "rights": "저작권 보호. HAJUNG.",
+    "privacy": "개인정보 처리방침",
+    "terms": "이용약관",
+    "instagram": "인스타그램",
+    "naver": "네이버 플레이스"
+  }
+}
