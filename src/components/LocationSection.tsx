@@ -87,7 +87,7 @@ export const LocationSection: React.FC = () => {
               {/* Map Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 pt-1">
                 <a
-                  href="https://maps.google.com/?q=Gangnam+Seoul+Dosan-daero"
+                  href="https://maps.google.com/?q=%ED%95%98%EC%A0%95%EC%8B%9D%EB%8B%B9+%EA%B4%80%EC%95%85%EA%B5%AC+%EB%B4%89%EC%B2%9C%EB%8F%99+%EB%B3%B4%EB%9D%BC%EB%A7%A4%EB%A1%9C22"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 py-3.5 px-4 rounded-xl bg-[#CFBE91] hover:bg-[#EFE7D2] text-[#0A0B0A] text-[10px] font-inter font-semibold tracking-[0.18em] uppercase flex items-center justify-center gap-2 transition-all shadow-[0_4px_20px_rgba(207,190,145,0.2)]"
@@ -97,7 +97,7 @@ export const LocationSection: React.FC = () => {
                   <ExternalLink className="w-3 h-3" />
                 </a>
                 <a
-                  href="https://map.naver.com"
+                  href="https://m.place.naver.com/restaurant/1950711047/home"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 py-3.5 px-4 rounded-xl bg-transparent border border-[#2A2A27] hover:border-[rgba(207,190,145,0.3)] text-[rgba(245,242,234,0.6)] hover:text-[#EFE7D2] text-[10px] font-inter font-semibold tracking-[0.18em] uppercase flex items-center justify-center gap-2 transition-all"
@@ -113,7 +113,7 @@ export const LocationSection: React.FC = () => {
             <div className="lg:col-span-6 relative h-[480px] rounded-2xl overflow-hidden border border-[#2A2A27] shadow-2xl bg-[#111110] group">
               <iframe
                 title="HAJUNG Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.792823616616!2d127.0345!3d37.5255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca3849767f781%3A0x6a0f443b749d7990!2sDosan-daero%2C%20Gangnam-gu%2C%20Seoul!5e0!3m2!1sen!2skr!4v1700000000000!5m2!1sen!2skr"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.1234567890123!2d126.92880!3d37.48200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b62b4f8c34a51%3A0x9c89f5e0b1234567!2z67CA7KSA7Iud64uI!5e0!3m2!1sko!2skr!4v1700000000000!5m2!1sko!2skr"
                 width="100%"
                 height="100%"
                 style={{ filter: 'invert(90%) hue-rotate(180deg) contrast(1.1) saturate(0.8)' }}
@@ -128,8 +128,8 @@ export const LocationSection: React.FC = () => {
                     하
                   </div>
                   <div>
-                    <h4 className="font-forum text-sm text-[#EFE7D2]">HAJUNG (하정)</h4>
-                    <span className="text-[10px] text-[#4E4C47] font-inter block">Dosan-daero 45-gil 24, Gangnam</span>
+                    <h4 className="font-forum text-sm text-[#EFE7D2]">HAJUNG (하정식당)</h4>
+                    <span className="text-[10px] text-[#4E4C47] font-inter block">보라매로 22, 봉천동, 관악구, 서울</span>
                   </div>
                 </div>
               </div>

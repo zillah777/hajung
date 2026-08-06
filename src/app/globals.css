@@ -75,8 +75,8 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Minimum touch target size for accessibility */
-  button, a, [role="button"] {
+  /* Minimum touch target size for accessibility — only standalone buttons/links */
+  button:not(.inline-link), [role="button"] {
     min-height: 44px;
     min-width: 44px;
   }
@@ -239,88 +239,6 @@ select option {
   color: #EFE7D2;
 }
 
-/* ── Glass Effects (Qitchen style) ── */
-.bg-glass {
-  background: rgba(10, 11, 10, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
-
-.bg-glass-card {
-  background: rgba(24, 24, 24, 0.6);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(207, 190, 145, 0.08);
-}
-
-/* ── Gradient Text ── */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #EFE7D2 0%, #CFBE91 50%, #A89060 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ── Glow Effects ── */
-.border-gold-glow {
-  box-shadow: 0 0 30px -8px rgba(207, 190, 145, 0.18);
-}
-
-.shadow-gold {
-  box-shadow: 0 8px 40px -12px rgba(207, 190, 145, 0.20);
-}
-
-/* ── Qitchen Card Base ── */
-.qitchen-card {
-  background: #1E1E1E;
-  border: 1px solid #2A2A27;
-  border-radius: 24px;
-}
-
-/* ── Badge ── */
-.qitchen-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 14px;
-  border-radius: 9999px;
-  border: 1px solid rgba(207, 190, 145, 0.35);
-  background: rgba(207, 190, 145, 0.07);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #CFBE91;
-  font-family: var(--font-inter);
-  font-weight: 500;
-}
-
-/* ── Button Primary (Gold Solid) ── */
-.btn-gold {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 28px;
-  border-radius: 9999px;
-  background: #CFBE91;
-  color: #0A0B0A;
-  font-family: var(--font-inter);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(207, 190, 145, 0.2);
-}
-.btn-gold:hover {
-  background: #EFE7D2;
-  transform: scale(1.03);
-  box-shadow: 0 8px 30px rgba(207, 190, 145, 0.3);
-}
-.btn-gold:active {
-  transform: scale(0.97);
-}
-
-/* ── Button Outline ── */
 .btn-outline-gold {
   display: inline-flex;
   align-items: center;
