@@ -26,13 +26,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
     vid.defaultMuted = true;
 
     const playMedia = () => {
-      vid.muted = true;
-      vid.play().catch(() => {});
+      if (vid) {
+        vid.muted = true;
+        vid.play().catch(() => {});
+      }
     };
 
     playMedia();
+
     vid.addEventListener('loadeddata', playMedia);
     vid.addEventListener('canplay', playMedia);
+
+    // Global passive interaction fallback for Mobile Safari Power Saver / Low Power Mode
+    const handlePassiveTouch = () => {
+      playMedia();
+      window.removeEventListener('touchstart', handlePassiveTouch, { capture: true });
+      window.removeEventListener('touchend', handlePassiveTouch, { capture: true });
+      window.removeEventListener('pointerdown', handlePassiveTouch, { capture: true });
+      window.removeEventListener('scroll', handlePassiveTouch, { capture: true });
+    };
+    window.addEventListener('touchstart', handlePassiveTouch, { passive: true, capture: true });
+    window.addEventListener('touchend', handlePassiveTouch, { passive: true, capture: true });
+    window.addEventListener('pointerdown', handlePassiveTouch, { passive: true, capture: true });
+    window.addEventListener('scroll', handlePassiveTouch, { passive: true, capture: true });
 
     const isMobile = window.innerWidth < 768;
 
@@ -63,6 +79,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
         vid.removeEventListener('loadeddata', playMedia);
         vid.removeEventListener('canplay', playMedia);
         vid.removeEventListener('timeupdate', onTimeUpdate);
+        window.removeEventListener('touchstart', handlePassiveTouch, { capture: true });
+        window.removeEventListener('touchend', handlePassiveTouch, { capture: true });
+        window.removeEventListener('pointerdown', handlePassiveTouch, { capture: true });
+        window.removeEventListener('scroll', handlePassiveTouch, { capture: true });
         clearTimeout(fallbackTimer);
       };
     }
@@ -70,6 +90,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
     return () => {
       vid.removeEventListener('loadeddata', playMedia);
       vid.removeEventListener('canplay', playMedia);
+      window.removeEventListener('touchstart', handlePassiveTouch, { capture: true });
+      window.removeEventListener('touchend', handlePassiveTouch, { capture: true });
+      window.removeEventListener('pointerdown', handlePassiveTouch, { capture: true });
+      window.removeEventListener('scroll', handlePassiveTouch, { capture: true });
     };
   }, []);
 
@@ -109,7 +133,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       >
         {/* ── Video Background (portada.mp4 via raw HTML for Safari autoplay) ── */}
         <div
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="absolute inset-0 w-full h-full pointer-events-none select-none"
           dangerouslySetInnerHTML={{
             __html: `
               <video
@@ -124,6 +148,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
                 preload="auto"
                 style="width:100%;height:100%;object-fit:cover;filter:brightness(0.92) contrast(1.04) saturate(0.98);pointer-events:none;"
               ></video>
+              <script>
+                (function(){
+                  var v = document.getElementById('hero-bg-video');
+                  if (v) {
+                    v.muted = true;
+                    v.defaultMuted = true;
+                    var p = v.play();
+                    if (p !== undefined) { p.catch(function(){}); }
+                  }
+                })();
+              </script>
             `
           }}
         />
