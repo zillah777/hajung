@@ -20,21 +20,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       id: 'menu',
       label: tNav('menu').toUpperCase(),
       href: '#menu',
-      image: '/images/hajung/20250329_181930.jpg',
+      image: '/images/hajung/image7.png',
       isButton: false,
     },
     {
       id: 'reservation',
       label: tNav('bookTable').toUpperCase(),
       href: '#reservation',
-      image: '/images/hajung/upload_ed5a0e3cb8430995e0af77bd8208e407.jpg',
+      image: '/images/hajung/peopleambient.png',
       isButton: true,
     },
     {
       id: 'story',
       label: tNav('about').toUpperCase(),
       href: '#story',
-      image: '/images/hajung/997eafe3-6a84-4711-9806-ddfa02f0fa6f.jpeg',
+      image: '/images/hajung/about.jpeg',
       isButton: false,
     },
   ];
@@ -170,8 +170,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
                   }}
                 />
 
-                {/* Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/40 via-[#0D0D0C]/05 to-transparent" />
+                {/* Gradient overlay focused on text side */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/70 via-[#0A0B0A]/20 to-transparent pointer-events-none" />
 
                 {/* Label + Arrow */}
                 <div className="absolute bottom-0 left-0 right-0 px-6 pb-5 flex items-end justify-between">
