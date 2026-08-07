@@ -22,20 +22,39 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
     const vid = videoRef.current;
     if (!vid) return;
 
+    // Force DOM properties for strict mobile Safari autoplay compliance
+    vid.defaultMuted = true;
+    vid.muted = true;
+
     const isMobile = window.innerWidth < 768;
 
-    if (!isMobile) {
-      // Desktop: Continuous loop, title fades in immediately on page load
-      vid.loop = true;
+    const attemptPlay = () => {
       vid.play().catch(() => {});
+    };
+
+    if (!isMobile) {
+      // Desktop: Continuous loop, title fades in immediately
+      vid.loop = true;
+      attemptPlay();
       setShowTitle(true);
       return;
     }
 
-    // Mobile: Play once, then reveal title with fade-in + slide-up on video end
-    vid.loop = false;
-    vid.play().catch(() => {});
+    // Mobile: Attempt play immediately
+    attemptPlay();
 
+    // Fallback: If mobile Low-Power Mode blocks initial autoplay, start on first touch/scroll
+    const handleInteraction = () => {
+      attemptPlay();
+      window.removeEventListener('touchstart', handleInteraction);
+      window.removeEventListener('pointerdown', handleInteraction);
+      window.removeEventListener('scroll', handleInteraction);
+    };
+    window.addEventListener('touchstart', handleInteraction, { passive: true });
+    window.addEventListener('pointerdown', handleInteraction, { passive: true });
+    window.addEventListener('scroll', handleInteraction, { passive: true });
+
+    // Event listener for video end
     const onEnded = () => {
       if (!hasEndedOnce.current) {
         hasEndedOnce.current = true;
@@ -43,10 +62,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       }
     };
     vid.addEventListener('ended', onEnded);
-    return () => vid.removeEventListener('ended', onEnded);
+
+    // Fallback timer: Reveal title after 4 seconds if ended event doesn't fire
+    const fallbackTimer = setTimeout(() => {
+      if (!hasEndedOnce.current) {
+        hasEndedOnce.current = true;
+        setShowTitle(true);
+      }
+    }, 4000);
+
+    return () => {
+      vid.removeEventListener('ended', onEnded);
+      window.removeEventListener('touchstart', handleInteraction);
+      window.removeEventListener('pointerdown', handleInteraction);
+      window.removeEventListener('scroll', handleInteraction);
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
-  // On mobile: After first ended event, enable loop and resume video
+  // On mobile: After title is shown, ensure loop is active and video continues playing
   React.useEffect(() => {
     if (showTitle && videoRef.current) {
       videoRef.current.loop = true;
@@ -93,9 +127,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
           ref={videoRef}
           autoPlay
           muted
+          loop
           playsInline
           // @ts-ignore
           webkit-playsinline="true"
+          // @ts-ignore
+          x5-playsinline="true"
           preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'brightness(0.92) contrast(1.04) saturate(0.98)' }}
