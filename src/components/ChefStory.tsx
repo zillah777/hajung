@@ -102,15 +102,15 @@ export const ChefStory: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/45 via-[#080908]/15 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#080908]/10 hidden md:block" />
 
-          {/* Slide dots — mobile navigation */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 md:hidden z-20">
+          {/* Slide dots — mobile navigation (small & sleek top-left) */}
+          <div className="absolute top-4 left-4 flex gap-1.5 md:hidden z-20">
             {SLIDES.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setSlideIdx(i)}
                 aria-label={`Slide ${i + 1}`}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  i === slideIdx ? 'bg-[#CFBE91] scale-125' : 'bg-[#EFE7D2]/60'
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  i === slideIdx ? 'bg-[#CFBE91] scale-110' : 'bg-[#EFE7D2]/40'
                 }`}
               />
             ))}
@@ -120,19 +120,19 @@ export const ChefStory: React.FC = () => {
           <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10 z-10">
             <h2
               className="font-serif text-[#EFE7D2] leading-[0.85] tracking-[-0.02em] select-none"
-              style={{ fontSize: 'clamp(48px, 10vw, 120px)' }}
+              style={{ fontSize: 'clamp(40px, 9vw, 120px)' }}
             >
               ABOUT
             </h2>
           </div>
 
-          {/* Next arrow — mobile: bottom-right corner */}
+          {/* Next arrow — mobile: top-right corner */}
           <button
             onClick={nextSlide}
             aria-label="Next slide"
-            className="absolute bottom-6 right-6 md:hidden z-20 w-10 h-10 rounded-full bg-[#EFE7D2]/10 border border-[#EFE7D2]/25 flex items-center justify-center text-[#EFE7D2]"
+            className="absolute top-4 right-4 md:hidden z-20 w-7 h-7 rounded-full bg-[#EFE7D2]/10 border border-[#EFE7D2]/25 flex items-center justify-center text-[#EFE7D2]"
           >
-            <ChevronRight className="w-4 h-4" />
+            <ChevronRight className="w-3.5 h-3.5" />
           </button>
         </div>
 

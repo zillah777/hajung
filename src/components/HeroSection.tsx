@@ -14,6 +14,32 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
   const t = useTranslations('Hero');
   const tNav = useTranslations('Navigation');
   const [hovered, setHovered] = useState<string | null>(null);
+  const [showTitle, setShowTitle] = useState(false);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const hasEndedOnce = React.useRef(false);
+
+  React.useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    vid.play().catch(() => {});
+
+    const onEnded = () => {
+      if (!hasEndedOnce.current) {
+        hasEndedOnce.current = true;
+        setShowTitle(true);
+      }
+    };
+    vid.addEventListener('ended', onEnded);
+    return () => vid.removeEventListener('ended', onEnded);
+  }, []);
+
+  // After first ended event, let video keep looping
+  React.useEffect(() => {
+    if (showTitle && videoRef.current) {
+      videoRef.current.loop = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, [showTitle]);
 
   const rightCards = [
     {
@@ -40,21 +66,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
   ];
 
   return (
-    <section className="relative flex flex-col md:flex-row h-screen overflow-hidden gap-1.5 md:gap-3 bg-[#0A0B0A] p-0 md:p-1.5">
+    <section className="relative flex flex-col md:flex-row h-[100dvh] overflow-hidden gap-1.5 md:gap-3 bg-[#0A0B0A] p-0 md:p-1.5">
 
       {/* ── LEFT PANEL ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2 }}
-        className="relative flex-shrink-0 w-full md:w-[57.5%] h-[50vh] md:h-full rounded-none md:rounded-r-2xl overflow-hidden"
+        className="relative flex-shrink-0 w-full md:w-[57.5%] h-[48dvh] md:h-full rounded-none md:rounded-r-2xl overflow-hidden"
       >
         {/* ── Video Background (portada.mp4) ── */}
         <video
+          ref={videoRef}
           autoPlay
           muted
-          loop
           playsInline
+          // @ts-ignore
+          webkit-playsinline="true"
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ filter: 'brightness(0.92) contrast(1.04) saturate(0.98)' }}
         >
@@ -65,24 +94,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
         <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/50 via-[#080908]/15 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/20 via-transparent to-transparent" />
 
-        {/* Top badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="absolute top-24 left-8 md:top-8 md:left-8"
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(207,190,145,0.35)] bg-[rgba(207,190,145,0.1)] text-[9px] font-medium tracking-[0.28em] text-[#CFBE91] uppercase">
-            {t('badge')}
-          </span>
-        </motion.div>
-
-        {/* Main headline — bottom left */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute bottom-16 md:bottom-10 left-8 pr-8 md:pr-12"
+        {/* Main headline — fades in after video first play ends */}
+        <div
+          className="absolute bottom-6 md:bottom-10 left-6 md:left-8 pr-6 md:pr-12 transition-all duration-[1500ms] ease-out"
+          style={{ opacity: showTitle ? 1 : 0, transform: showTitle ? 'translateY(0)' : 'translateY(24px)' }}
         >
           <h1
             className="font-serif text-[#EFE7D2] leading-[0.88] tracking-[-0.01em] select-none"
@@ -91,7 +106,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
             {t('titleLine1')}<br />
             <span className="text-[#CFBE91] italic">{t('titleHighlight')}</span>
           </h1>
-        </motion.div>
+        </div>
 
         {/* Social icons — bottom left below title */}
         <motion.div
@@ -135,7 +150,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       </motion.div>
 
       {/* ── RIGHT PANEL: 3 stacked image cards ── */}
-      <div className="flex-1 flex flex-col h-[50vh] md:h-full bg-[#0D0D0C] rounded-none md:rounded-l-2xl overflow-hidden gap-1.5">
+      <div className="flex-1 flex flex-col h-[52dvh] md:h-full bg-[#0D0D0C] rounded-none md:rounded-l-2xl overflow-hidden gap-1.5">
         {rightCards.map((card, idx) => {
           const CardTag = card.isButton ? 'button' : 'a';
           const cardProps = card.isButton
