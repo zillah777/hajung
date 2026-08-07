@@ -98,9 +98,9 @@ export const ChefStory: React.FC = () => {
             </motion.div>
           </AnimatePresence>
 
-          {/* Gradients */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/30 via-[#080908]/05 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#080908]/05 hidden md:block" />
+          {/* Gradients (+15% contrast behind text) */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/45 via-[#080908]/15 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#080908]/10 hidden md:block" />
 
           {/* Slide dots — mobile navigation */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 md:hidden z-20">
@@ -208,8 +208,8 @@ export const ChefStory: React.FC = () => {
                 </motion.div>
               </AnimatePresence>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/30 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0D0D0C]/05" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/45 via-[#0D0D0C]/15 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0D0D0C]/10" />
 
               {/* Next arrow button */}
               <button
@@ -280,7 +280,7 @@ export const ChefStory: React.FC = () => {
                   </motion.div>
                 </AnimatePresence>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/30 via-[#0D0D0C]/05 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/45 via-[#0D0D0C]/15 to-transparent" />
 
                 {/* Arrow */}
                 <button
@@ -394,7 +394,7 @@ export const ChefStory: React.FC = () => {
             className="object-cover object-top"
             style={{ filter: 'brightness(0.94) contrast(1.04)' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/30 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/45 via-[#0D0D0C]/15 to-transparent" />
           <div className="absolute bottom-4 left-4">
             <span className="text-[8px] uppercase tracking-[0.25em] text-[#CFBE91] block mb-0.5 font-medium">Chef</span>
             <span className="font-serif text-[#EFE7D2] text-base">{t('chefName')}</span>
@@ -412,7 +412,7 @@ export const ChefStory: React.FC = () => {
             className="object-cover object-center"
             style={{ filter: 'brightness(0.94) contrast(1.04)' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/30 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/45 via-[#0D0D0C]/15 to-transparent" />
           <div className="absolute bottom-4 left-4">
             <span className="text-[8px] uppercase tracking-[0.25em] text-[#CFBE91] block mb-0.5 font-medium">{t('pillars.team.badge')}</span>
             <span className="font-serif text-[#EFE7D2] text-base">{t('pillars.team.title')}</span>

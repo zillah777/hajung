@@ -91,8 +91,8 @@ export const ReservationSection: React.FC = () => {
           className="object-cover object-center"
           style={{ filter: 'brightness(0.92) contrast(1.04) saturate(0.98)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/30 via-[#080908]/05 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/05 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/45 via-[#080908]/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/15 to-transparent" />
 
         <div className="absolute bottom-8 left-8 md:bottom-10 md:left-10 pr-8">
           <h1

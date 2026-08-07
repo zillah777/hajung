@@ -62,8 +62,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
         </video>
 
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/35 via-[#080908]/05 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/50 via-[#080908]/15 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/20 via-transparent to-transparent" />
 
         {/* Top badge */}
         <motion.div
@@ -170,8 +170,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
                   }}
                 />
 
-                {/* Gradient overlay focused on text side */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/70 via-[#0A0B0A]/20 to-transparent pointer-events-none" />
+                {/* Gradient overlay focused on text side (+15% contrast behind text) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/85 via-[#0A0B0A]/35 to-transparent pointer-events-none" />
 
                 {/* Label + Arrow */}
                 <div className="absolute bottom-0 left-0 right-0 px-6 pb-5 flex items-end justify-between">

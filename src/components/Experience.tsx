@@ -78,7 +78,7 @@ export const Experience: React.FC = () => {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/35 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="text-[10px] uppercase tracking-widest text-[#CFBE91] font-semibold font-inter block">Craftsmanship</span>
                   <span className="text-xs text-[rgba(245,242,234,0.9)] font-forum">Precision Knife Technique</span>
@@ -92,7 +92,7 @@ export const Experience: React.FC = () => {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/35 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="text-[10px] uppercase tracking-widest text-[#CFBE91] font-semibold font-inter block">Binchotan</span>
                   <span className="text-xs text-[rgba(245,242,234,0.9)] font-forum">Oak Charcoal Fire</span>
