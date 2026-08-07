@@ -30,18 +30,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
     vid.setAttribute('webkit-playsinline', 'true');
     vid.setAttribute('loop', '');
 
-    const safePlay = () => {
+    const playVideo = () => {
       vid.muted = true;
-      const p = vid.play();
-      if (p !== undefined) {
-        p.catch(() => {});
+      const promise = vid.play();
+      if (promise !== undefined) {
+        promise.catch(() => {});
       }
     };
 
-    safePlay();
+    playVideo();
 
-    vid.addEventListener('loadedmetadata', safePlay);
-    vid.addEventListener('canplay', safePlay);
+    vid.addEventListener('loadstart', playVideo);
+    vid.addEventListener('loadeddata', playVideo);
+    vid.addEventListener('canplay', playVideo);
+    vid.addEventListener('canplaythrough', playVideo);
+
+    const retryInterval = setInterval(() => {
+      if (vid.paused) {
+        playVideo();
+      } else {
+        clearInterval(retryInterval);
+      }
+    }, 250);
 
     const isMobile = window.innerWidth < 768;
 
@@ -69,16 +79,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       }, 4000);
 
       return () => {
-        vid.removeEventListener('loadedmetadata', safePlay);
-        vid.removeEventListener('canplay', safePlay);
+        clearInterval(retryInterval);
+        vid.removeEventListener('loadstart', playVideo);
+        vid.removeEventListener('loadeddata', playVideo);
+        vid.removeEventListener('canplay', playVideo);
+        vid.removeEventListener('canplaythrough', playVideo);
         vid.removeEventListener('timeupdate', onTimeUpdate);
         clearTimeout(fallbackTimer);
       };
     }
 
     return () => {
-      vid.removeEventListener('loadedmetadata', safePlay);
-      vid.removeEventListener('canplay', safePlay);
+      clearInterval(retryInterval);
+      vid.removeEventListener('loadstart', playVideo);
+      vid.removeEventListener('loadeddata', playVideo);
+      vid.removeEventListener('canplay', playVideo);
+      vid.removeEventListener('canplaythrough', playVideo);
     };
   }, []);
 
@@ -122,8 +138,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
           src="/videos/portada.mp4"
           autoPlay
           muted
+          // @ts-ignore
+          defaultMuted
           loop
           playsInline
+          controls={false}
           // @ts-ignore
           webkit-playsinline="true"
           // @ts-ignore
