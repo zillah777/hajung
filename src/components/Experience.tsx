@@ -25,7 +25,7 @@ export const Experience: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="rounded-3xl bg-[#1E1E1E] border border-[#2A2A27] p-8 sm:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden"
+          className="rounded-3xl bg-[#1E1E1E] border border-[#2A2A27] p-5 sm:p-10 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden"
         >
           {/* Ambient Gold Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[rgba(207,190,145,0.04)] rounded-full blur-[120px] pointer-events-none" />
@@ -43,28 +43,28 @@ export const Experience: React.FC = () => {
 
             {/* Left: Narrative Copy */}
             <div className="lg:col-span-6 space-y-6">
-              <h3 className="font-forum text-2xl sm:text-3xl text-[rgba(245,242,234,0.8)] tracking-wider font-normal">
+              <h3 className="font-forum text-2xl sm:text-3xl text-[rgba(245,242,234,0.9)] tracking-wider font-normal">
                 Yakisugi & Wabi-Sabi{' '}
                 <span className="italic text-[#CFBE91]">Omakase Sanctuary</span>
               </h3>
 
-              <p className="text-[rgba(245,242,234,0.55)] font-inter text-base leading-relaxed">
+              <p className="text-[rgba(245,242,234,0.85)] font-inter text-base leading-relaxed">
                 {t('paragraph1')}
               </p>
 
-              <p className="text-[rgba(245,242,234,0.55)] font-inter text-base leading-relaxed">
+              <p className="text-[rgba(245,242,234,0.85)] font-inter text-base leading-relaxed">
                 {t('paragraph2')}
               </p>
 
               <div className="pt-5 flex items-center gap-8 border-t border-[#2A2A27]">
                 <div>
                   <span className="block font-forum text-2xl text-[#EFE7D2] font-normal">旬 (Shun)</span>
-                  <span className="text-[10px] uppercase tracking-widest text-[#4E4C47] font-inter">Micro-Seasonality</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#9E9A90] font-inter font-medium">Micro-Seasonality</span>
                 </div>
                 <div className="w-[1px] h-10 bg-[#2A2A27]" />
                 <div>
                   <span className="block font-forum text-2xl text-[#EFE7D2] font-normal">匠 (Takumi)</span>
-                  <span className="text-[10px] uppercase tracking-widest text-[#4E4C47] font-inter">Master Artistry</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#9E9A90] font-inter font-medium">Master Artistry</span>
                 </div>
               </div>
             </div>
@@ -78,10 +78,10 @@ export const Experience: React.FC = () => {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/85 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/20 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="text-[10px] uppercase tracking-widest text-[#CFBE91] font-semibold font-inter block">Craftsmanship</span>
-                  <span className="text-xs text-[rgba(245,242,234,0.7)] font-forum">Precision Knife Technique</span>
+                  <span className="text-xs text-[rgba(245,242,234,0.9)] font-forum">Precision Knife Technique</span>
                 </div>
               </div>
 
@@ -92,10 +92,10 @@ export const Experience: React.FC = () => {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/85 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/20 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="text-[10px] uppercase tracking-widest text-[#CFBE91] font-semibold font-inter block">Binchotan</span>
-                  <span className="text-xs text-[rgba(245,242,234,0.7)] font-forum">Oak Charcoal Fire</span>
+                  <span className="text-xs text-[rgba(245,242,234,0.9)] font-forum">Oak Charcoal Fire</span>
                 </div>
               </div>
             </div>
@@ -117,7 +117,7 @@ export const Experience: React.FC = () => {
                   <h4 className="font-forum text-lg text-[#EFE7D2] mb-2 group-hover:text-[#CFBE91] transition-colors">
                     {pillar.title}
                   </h4>
-                  <p className="text-[rgba(245,242,234,0.45)] font-inter text-xs leading-relaxed">
+                  <p className="text-[rgba(245,242,234,0.78)] font-inter text-xs leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>

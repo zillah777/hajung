@@ -20,7 +20,7 @@ const DiamondTitle = ({ children }: { children: React.ReactNode }) => (
 );
 
 const inputCls =
-  'w-full bg-transparent border-b border-[#2A2A27] focus:border-[#CFBE91] text-[#EFE7D2] placeholder:text-[#3A3A37] text-sm py-3 outline-none transition-colors font-sans tracking-wide';
+  'w-full bg-transparent border-b border-[#2A2A27] focus:border-[#CFBE91] text-[#EFE7D2] placeholder:text-[#66645E] text-sm py-3 outline-none transition-colors font-sans tracking-wide';
 
 export const ReservationSection: React.FC = () => {
   const t = useTranslations('Reservation');
@@ -89,10 +89,10 @@ export const ReservationSection: React.FC = () => {
           alt="Reserve a table at HAJUNG"
           fill
           className="object-cover object-center"
-          style={{ filter: 'brightness(0.3) contrast(1.12) saturate(0.85)' }}
+          style={{ filter: 'brightness(0.92) contrast(1.04) saturate(0.98)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/88 via-[#080908]/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/30 via-[#080908]/05 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/05 to-transparent" />
 
         <div className="absolute bottom-8 left-8 md:bottom-10 md:left-10 pr-8">
           <h1
@@ -118,7 +118,7 @@ export const ReservationSection: React.FC = () => {
             {/* Header */}
             <div className="mb-6 flex-shrink-0">
               <DiamondTitle>{t('tagline')}</DiamondTitle>
-              <p className="text-center text-[11px] text-[#EFE7D2]/35 tracking-wider mt-2 leading-relaxed max-w-sm mx-auto">
+              <p className="text-center text-[11px] text-[#EFE7D2]/80 tracking-wider mt-2 leading-relaxed max-w-sm mx-auto">
                 {t('subtitle')}
               </p>
             </div>
@@ -129,7 +129,7 @@ export const ReservationSection: React.FC = () => {
               {/* Row 1: Name + Email */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/40 mb-1.5 font-medium">
+                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/80 mb-1.5 font-medium">
                     {t('namePlaceholder')}
                   </label>
                   <input
@@ -142,7 +142,7 @@ export const ReservationSection: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/40 mb-1.5 font-medium">
+                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/80 mb-1.5 font-medium">
                     {t('emailPlaceholder')}
                   </label>
                   <input
@@ -159,7 +159,7 @@ export const ReservationSection: React.FC = () => {
               {/* Row 2: Phone + People */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/40 mb-1.5 font-medium">
+                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/80 mb-1.5 font-medium">
                     {t('phonePlaceholder')}
                   </label>
                   <input
@@ -172,7 +172,7 @@ export const ReservationSection: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/40 mb-1.5 font-medium">
+                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/80 mb-1.5 font-medium">
                     {t('guestsLabel')}
                   </label>
                   <input
@@ -192,7 +192,7 @@ export const ReservationSection: React.FC = () => {
               {/* Row 3: Date + Time */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/40 mb-1.5 font-medium">
+                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/80 mb-1.5 font-medium">
                     {t('dateLabel')}
                   </label>
                   <input
@@ -204,7 +204,7 @@ export const ReservationSection: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/40 mb-1.5 font-medium">
+                  <label className="block text-[9px] uppercase tracking-[0.25em] text-[#EFE7D2]/80 mb-1.5 font-medium">
                     {t('timeLabel')}
                   </label>
                   <select
@@ -257,21 +257,21 @@ export const ReservationSection: React.FC = () => {
 
             <div>
               <h3 className="font-serif text-3xl text-[#EFE7D2] mb-3">{t('successTitle')}</h3>
-              <p className="text-[#EFE7D2]/40 text-sm leading-relaxed max-w-xs mx-auto">
+              <p className="text-[#EFE7D2]/80 text-sm leading-relaxed max-w-xs mx-auto">
                 {t('successDesc')}
               </p>
             </div>
 
             <div className="w-full max-w-xs border border-[#1E1E1E] rounded-xl p-4 space-y-2.5 text-left">
-              <div className="text-[10px] text-[#4E4C47] flex justify-between gap-3">
+              <div className="text-[10px] text-[#9E9A90] flex justify-between gap-3 font-medium">
                 <span className="text-[#CFBE91] flex-shrink-0">{t('dateLabel')}</span>
                 <span className="text-right">{date} — {time}</span>
               </div>
-              <div className="text-[10px] text-[#4E4C47] flex justify-between gap-3">
+              <div className="text-[10px] text-[#9E9A90] flex justify-between gap-3 font-medium">
                 <span className="text-[#CFBE91] flex-shrink-0">{t('guestsLabel')}</span>
                 <span>{people}</span>
               </div>
-              <div className="text-[10px] text-[#4E4C47] flex justify-between gap-3">
+              <div className="text-[10px] text-[#9E9A90] flex justify-between gap-3 font-medium">
                 <span className="text-[#CFBE91] flex-shrink-0">{t('namePlaceholder')}</span>
                 <span className="text-right truncate">{name}</span>
               </div>

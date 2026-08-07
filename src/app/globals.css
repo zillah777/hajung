@@ -29,19 +29,19 @@
 
     /* Secondary */
     --secondary: #1E1E1E;
-    --secondary-foreground: rgba(245, 242, 234, 0.7);
+    --secondary-foreground: rgba(245, 242, 234, 0.88);
 
     /* Muted */
     --muted: #181818;
-    --muted-foreground: #4E4C47;
+    --muted-foreground: #9E9A90;
 
     /* Accent — Qitchen Gold */
     --accent: #CFBE91;
     --accent-foreground: #0A0B0A;
 
     /* Border */
-    --border: #333330;
-    --input: #333330;
+    --border: #3A3A36;
+    --input: #3A3A36;
     --ring: #CFBE91;
     --radius: 0.75rem;
   }

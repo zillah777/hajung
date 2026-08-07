@@ -39,7 +39,7 @@ export const GalleryGrid: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="rounded-3xl bg-[#1E1E1E] border border-[#2A2A27] p-8 sm:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden"
+          className="rounded-3xl bg-[#1E1E1E] border border-[#2A2A27] p-5 sm:p-10 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden"
         >
           {/* Header */}
           <div className="flex flex-col items-center text-center mb-12">
@@ -50,7 +50,7 @@ export const GalleryGrid: React.FC = () => {
             <h2 className="font-forum text-4xl sm:text-6xl md:text-7xl font-normal tracking-tight text-[#EFE7D2]">
               {t('title')}
             </h2>
-            <p className="text-[rgba(245,242,234,0.5)] font-inter text-sm sm:text-base max-w-xl mt-3">
+            <p className="text-[rgba(245,242,234,0.85)] font-inter text-sm sm:text-base max-w-xl mt-3">
               {t('subtitle')}
             </p>
           </div>
@@ -71,7 +71,7 @@ export const GalleryGrid: React.FC = () => {
                   src={img.src}
                   alt={img.title}
                   fill
-                  className="object-cover transition-all duration-700 group-hover:scale-110 filter brightness-[0.85] group-hover:brightness-100"
+                  className="object-cover transition-all duration-700 group-hover:scale-110 filter brightness-[0.95] group-hover:brightness-105"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/95 via-[#0A0B0A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-5">
@@ -81,7 +81,7 @@ export const GalleryGrid: React.FC = () => {
                   <div>
                     <span className="flex items-center gap-1.5 text-[9px] uppercase tracking-widest text-[#CFBE91] font-semibold mb-1 font-inter">
                       <MapPin className="w-3 h-3" />
-                      Gangnam, Seoul
+                      Gwanak-gu, Seoul
                     </span>
                     <h4 className="font-forum text-lg text-[#EFE7D2]">
                       {img.title}

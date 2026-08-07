@@ -93,14 +93,14 @@ export const ChefStory: React.FC = () => {
                 priority
                 sizes="(max-width: 768px) 100vw, 48vw"
                 className="object-cover object-center"
-                style={{ filter: 'brightness(0.5) contrast(1.08) saturate(0.9)' }}
+                style={{ filter: 'brightness(0.94) contrast(1.02) saturate(0.98)' }}
               />
             </motion.div>
           </AnimatePresence>
 
           {/* Gradients */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/90 via-[#080908]/10 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#080908]/15 hidden md:block" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/30 via-[#080908]/05 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#080908]/05 hidden md:block" />
 
           {/* Slide dots — mobile navigation */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 md:hidden z-20">
@@ -110,7 +110,7 @@ export const ChefStory: React.FC = () => {
                 onClick={() => setSlideIdx(i)}
                 aria-label={`Slide ${i + 1}`}
                 className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  i === slideIdx ? 'bg-[#CFBE91] scale-125' : 'bg-[#EFE7D2]/30'
+                  i === slideIdx ? 'bg-[#CFBE91] scale-125' : 'bg-[#EFE7D2]/60'
                 }`}
               />
             ))}
@@ -167,7 +167,7 @@ export const ChefStory: React.FC = () => {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-[11.5px] text-[#EFE7D2]/50 leading-relaxed max-w-sm">
+                  <p className="text-[11.5px] text-[#EFE7D2]/85 leading-relaxed max-w-sm">
                     {t(`pillars.${pillarKey}.desc`)}
                   </p>
 
@@ -176,7 +176,7 @@ export const ChefStory: React.FC = () => {
                     {(['tag1', 'tag2', 'tag3'] as const).map((tk) => (
                       <span
                         key={tk}
-                        className="text-[8px] px-2.5 py-1 rounded-full border border-[rgba(207,190,145,0.25)] bg-[rgba(207,190,145,0.05)] text-[#CFBE91] tracking-wider uppercase"
+                        className="text-[8px] px-2.5 py-1 rounded-full border border-[rgba(207,190,145,0.35)] bg-[rgba(207,190,145,0.08)] text-[#CFBE91] tracking-wider uppercase font-medium"
                       >
                         ✦ {t(`pillars.${pillarKey}.${tk}`)}
                       </span>
@@ -203,13 +203,13 @@ export const ChefStory: React.FC = () => {
                     fill
                     sizes="42vw"
                     className="object-cover object-center"
-                    style={{ filter: 'brightness(0.45) contrast(1.05)' }}
+                    style={{ filter: 'brightness(0.92) contrast(1.02)' }}
                   />
                 </motion.div>
               </AnimatePresence>
 
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/70 via-transparent to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0D0D0C]/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/30 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0D0D0C]/05" />
 
               {/* Next arrow button */}
               <button
@@ -275,12 +275,12 @@ export const ChefStory: React.FC = () => {
                       fill
                       sizes="25vw"
                       className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
-                      style={{ filter: 'brightness(0.42) contrast(1.08)' }}
+                      style={{ filter: 'brightness(0.92) contrast(1.04)' }}
                     />
                   </motion.div>
                 </AnimatePresence>
 
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/85 via-[#0D0D0C]/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/30 via-[#0D0D0C]/05 to-transparent" />
 
                 {/* Arrow */}
                 <button
@@ -318,19 +318,19 @@ export const ChefStory: React.FC = () => {
                   {t('title')}
                 </h4>
 
-                <p className="text-[10.5px] text-[#EFE7D2]/45 leading-relaxed mb-3">
+                <p className="text-[10.5px] text-[#EFE7D2]/82 leading-relaxed mb-3">
                   {t('desc1')}
                 </p>
 
                 {/* Values */}
                 <div className="border-t border-[#181816] pt-3 space-y-2">
-                  <span className="text-[7.5px] uppercase tracking-[0.28em] text-[#CFBE91]/60 font-semibold block mb-2">
+                  <span className="text-[7.5px] uppercase tracking-[0.28em] text-[#CFBE91]/85 font-semibold block mb-2">
                     {t('valuesLabel')}
                   </span>
                   {VALUE_KEYS.map((key) => (
                     <div key={key} className="flex items-start gap-2">
-                      <span className="text-[#CFBE91]/50 text-[8px] mt-[2px] flex-shrink-0">◆</span>
-                      <p className="text-[10px] text-[#EFE7D2]/40 leading-snug">{t(key)}</p>
+                      <span className="text-[#CFBE91]/75 text-[8px] mt-[2px] flex-shrink-0">◆</span>
+                      <p className="text-[10px] text-[#EFE7D2]/78 leading-snug">{t(key)}</p>
                     </div>
                   ))}
                 </div>
@@ -338,18 +338,18 @@ export const ChefStory: React.FC = () => {
                 {/* Compact info */}
                 <div className="border-t border-[#181816] pt-3 mt-3 space-y-1.5">
                   <div className="flex items-start gap-1.5">
-                    <MapPin className="w-2.5 h-2.5 text-[#CFBE91]/60 flex-shrink-0 mt-[1px]" />
-                    <p className="text-[9.5px] text-[#EFE7D2]/50 leading-snug">{restaurantInfo.address}</p>
+                    <MapPin className="w-2.5 h-2.5 text-[#CFBE91]/80 flex-shrink-0 mt-[1px]" />
+                    <p className="text-[9.5px] text-[#EFE7D2]/80 leading-snug">{restaurantInfo.address}</p>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Phone className="w-2.5 h-2.5 text-[#CFBE91]/60 flex-shrink-0" />
-                    <span className="text-[9.5px] text-[#EFE7D2]/50 tracking-wider">{restaurantInfo.phone}</span>
+                    <Phone className="w-2.5 h-2.5 text-[#CFBE91]/80 flex-shrink-0" />
+                    <span className="text-[9.5px] text-[#EFE7D2]/80 tracking-wider">{restaurantInfo.phone}</span>
                   </div>
                   <div className="flex items-start gap-1.5">
-                    <Clock className="w-2.5 h-2.5 text-[#CFBE91]/60 flex-shrink-0 mt-[1px]" />
+                    <Clock className="w-2.5 h-2.5 text-[#CFBE91]/80 flex-shrink-0 mt-[1px]" />
                     <div>
-                      <p className="text-[9px] text-[#EFE7D2]/40">{restaurantInfo.weekdays}</p>
-                      <p className="text-[9px] text-[#EFE7D2]/40">{restaurantInfo.saturday}</p>
+                      <p className="text-[9px] text-[#EFE7D2]/75">{restaurantInfo.weekdays}</p>
+                      <p className="text-[9px] text-[#EFE7D2]/75">{restaurantInfo.saturday}</p>
                     </div>
                   </div>
                 </div>
@@ -380,7 +380,7 @@ export const ChefStory: React.FC = () => {
           {t('title')}
         </h3>
 
-        <p className="text-[12px] text-[#EFE7D2]/45 leading-relaxed mb-5">
+        <p className="text-[12px] text-[#EFE7D2]/82 leading-relaxed mb-5">
           {t('desc1')}
         </p>
 
@@ -392,13 +392,13 @@ export const ChefStory: React.FC = () => {
             fill
             sizes="100vw"
             className="object-cover object-top"
-            style={{ filter: 'brightness(0.55) contrast(1.08)' }}
+            style={{ filter: 'brightness(0.94) contrast(1.04)' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/30 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4">
-            <span className="text-[8px] uppercase tracking-[0.25em] text-[#CFBE91] block mb-0.5">Chef</span>
+            <span className="text-[8px] uppercase tracking-[0.25em] text-[#CFBE91] block mb-0.5 font-medium">Chef</span>
             <span className="font-serif text-[#EFE7D2] text-base">{t('chefName')}</span>
-            <p className="text-[10px] text-[#EFE7D2]/50 mt-0.5">{t('chefRole')}</p>
+            <p className="text-[10px] text-[#EFE7D2]/80 mt-0.5">{t('chefRole')}</p>
           </div>
         </div>
 
@@ -410,24 +410,24 @@ export const ChefStory: React.FC = () => {
             fill
             sizes="100vw"
             className="object-cover object-center"
-            style={{ filter: 'brightness(0.52) contrast(1.08)' }}
+            style={{ filter: 'brightness(0.94) contrast(1.04)' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/30 via-transparent to-transparent" />
           <div className="absolute bottom-4 left-4">
-            <span className="text-[8px] uppercase tracking-[0.25em] text-[#CFBE91] block mb-0.5">{t('pillars.team.badge')}</span>
+            <span className="text-[8px] uppercase tracking-[0.25em] text-[#CFBE91] block mb-0.5 font-medium">{t('pillars.team.badge')}</span>
             <span className="font-serif text-[#EFE7D2] text-base">{t('pillars.team.title')}</span>
           </div>
         </div>
 
         {/* Values grid — mobile */}
         <div className="space-y-3 mb-6">
-          <span className="text-[8px] uppercase tracking-[0.3em] text-[#CFBE91]/60 font-semibold block">
+          <span className="text-[8px] uppercase tracking-[0.3em] text-[#CFBE91]/85 font-semibold block">
             {t('valuesLabel')}
           </span>
           {VALUE_KEYS.map((key) => (
             <div key={key} className="flex items-start gap-3 py-3 border-b border-[#161614] last:border-0">
-              <span className="text-[#CFBE91]/60 text-[10px] mt-[2px] flex-shrink-0">◆</span>
-              <p className="text-[12px] text-[#EFE7D2]/55 leading-relaxed">{t(key)}</p>
+              <span className="text-[#CFBE91]/80 text-[10px] mt-[2px] flex-shrink-0">◆</span>
+              <p className="text-[12px] text-[#EFE7D2]/85 leading-relaxed">{t(key)}</p>
             </div>
           ))}
         </div>
@@ -460,24 +460,24 @@ export const ChefStory: React.FC = () => {
         {/* Contact info — mobile */}
         <div className="space-y-2.5 pt-4 border-t border-[#161614]">
           <div className="flex items-start gap-3">
-            <MapPin className="w-4 h-4 text-[#CFBE91]/70 flex-shrink-0 mt-0.5" />
+            <MapPin className="w-4 h-4 text-[#CFBE91] flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-[11px] text-[#EFE7D2]/65 leading-snug">{restaurantInfo.address}</p>
-              <p className="text-[9px] text-[#EFE7D2]/30 mt-0.5">{restaurantInfo.addressSub}</p>
+              <p className="text-[11px] text-[#EFE7D2]/85 leading-snug">{restaurantInfo.address}</p>
+              <p className="text-[9px] text-[#EFE7D2]/65 mt-0.5">{restaurantInfo.addressSub}</p>
             </div>
           </div>
           <a
             href={`tel:${restaurantInfo.phone.replace(/\./g, '-')}`}
             className="flex items-center gap-3 py-2"
           >
-            <Phone className="w-4 h-4 text-[#CFBE91]/70 flex-shrink-0" />
-            <span className="text-[11px] text-[#EFE7D2]/65 tracking-wider">{restaurantInfo.phone}</span>
+            <Phone className="w-4 h-4 text-[#CFBE91] flex-shrink-0" />
+            <span className="text-[11px] text-[#EFE7D2]/85 tracking-wider">{restaurantInfo.phone}</span>
           </a>
           <div className="flex items-start gap-3">
-            <Clock className="w-4 h-4 text-[#CFBE91]/70 flex-shrink-0 mt-0.5" />
+            <Clock className="w-4 h-4 text-[#CFBE91] flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-[11px] text-[#EFE7D2]/65">{restaurantInfo.weekdays}</p>
-              <p className="text-[11px] text-[#EFE7D2]/65">{restaurantInfo.saturday}</p>
+              <p className="text-[11px] text-[#EFE7D2]/85">{restaurantInfo.weekdays}</p>
+              <p className="text-[11px] text-[#EFE7D2]/85">{restaurantInfo.saturday}</p>
             </div>
           </div>
         </div>

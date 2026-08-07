@@ -56,14 +56,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          style={{ filter: 'brightness(0.38) contrast(1.1) saturate(0.85)' }}
+          style={{ filter: 'brightness(0.92) contrast(1.04) saturate(0.98)' }}
         >
           <source src="/videos/portada.mp4" type="video/mp4" />
         </video>
 
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/90 via-[#080908]/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/35 via-[#080908]/05 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/10 via-transparent to-transparent" />
 
         {/* Top badge */}
         <motion.div
@@ -72,7 +72,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
           transition={{ duration: 0.8, delay: 0.5 }}
           className="absolute top-24 left-8 md:top-8 md:left-8"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(207,190,145,0.25)] bg-[rgba(207,190,145,0.06)] text-[9px] font-medium tracking-[0.28em] text-[#CFBE91] uppercase">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(207,190,145,0.35)] bg-[rgba(207,190,145,0.1)] text-[9px] font-medium tracking-[0.28em] text-[#CFBE91] uppercase">
             {t('badge')}
           </span>
         </motion.div>
@@ -104,7 +104,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
             href="https://www.instagram.com/hajung.kitchen/"
             target="_blank"
             rel="noreferrer"
-            className="text-[#EFE7D2]/30 hover:text-[#CFBE91] transition-colors"
+            className="text-[#EFE7D2]/75 hover:text-[#CFBE91] transition-colors"
             aria-label="Instagram"
           >
             <Instagram className="w-4 h-4" />
@@ -113,12 +113,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
             href="https://x.com"
             target="_blank"
             rel="noreferrer"
-            className="text-[#EFE7D2]/30 hover:text-[#CFBE91] transition-colors"
+            className="text-[#EFE7D2]/75 hover:text-[#CFBE91] transition-colors"
             aria-label="X / Twitter"
           >
             <Twitter className="w-4 h-4" />
           </a>
-          <span className="text-[9px] text-[#EFE7D2]/20 tracking-[0.3em] uppercase">
+          <span className="text-[9px] text-[#EFE7D2]/65 tracking-[0.3em] uppercase font-medium">
             @hajung.kitchen
           </span>
         </motion.div>
@@ -130,7 +130,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
           transition={{ delay: 1.5, duration: 0.8 }}
           className="absolute bottom-6 right-6 hidden md:flex flex-col items-center gap-1.5"
         >
-          <ChevronDown className="w-4 h-4 text-[#EFE7D2]/20 animate-bounce" />
+          <ChevronDown className="w-4 h-4 text-[#EFE7D2]/65 animate-bounce" />
         </motion.div>
       </motion.div>
 
@@ -165,13 +165,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
                   fill
                   className="object-cover transition-all duration-700 group-hover:scale-[1.04]"
                   style={{
-                    filter: hovered === card.id ? 'brightness(0.55)' : 'brightness(0.42)',
+                    filter: hovered === card.id ? 'brightness(0.98)' : 'brightness(0.90)',
                     transition: 'filter 0.5s ease, transform 0.7s ease',
                   }}
                 />
 
                 {/* Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/90 via-[#0D0D0C]/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0C]/40 via-[#0D0D0C]/05 to-transparent" />
 
                 {/* Label + Arrow */}
                 <div className="absolute bottom-0 left-0 right-0 px-6 pb-5 flex items-end justify-between">

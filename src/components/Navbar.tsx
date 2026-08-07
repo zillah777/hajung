@@ -57,10 +57,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation }) => {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-5 left-0 right-0 z-50 px-5 flex items-start"
+        className="fixed top-5 left-0 right-0 z-50 px-3 sm:px-5 flex items-start"
       >
         <div
-          className={`inline-flex items-center gap-1 rounded-2xl px-3 py-2.5 transition-all duration-500 ${
+          className={`inline-flex items-center gap-1 rounded-2xl px-2.5 sm:px-3 py-2 sm:py-2.5 transition-all duration-500 max-w-full ${
             isScrolled
               ? 'bg-[#0D0D0C]/98 backdrop-blur-2xl border border-[#2A2A27] shadow-[0_8px_40px_rgba(0,0,0,0.7)]'
               : 'bg-[#111110]/90 backdrop-blur-xl border border-[#222220]'
@@ -100,7 +100,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation }) => {
                 className={`relative px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] transition-colors font-medium whitespace-nowrap ${
                   activeSection === link.id
                     ? 'text-[#CFBE91]'
-                    : 'text-[rgba(245,242,234,0.55)] hover:text-[#EFE7D2]'
+                    : 'text-[rgba(245,242,234,0.80)] hover:text-[#EFE7D2]'
                 }`}
               >
                 {link.label}
@@ -121,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation }) => {
 
           {/* Lang Switcher */}
           <div className="hidden sm:flex items-center gap-0.5 text-[10px]">
-            <Globe className="w-3 h-3 text-[#4E4C47] mr-1" />
+            <Globe className="w-3 h-3 text-[#9E9A90] mr-1" />
             {(['es', 'en', 'ko'] as const).map((lang, i, arr) => (
               <React.Fragment key={lang}>
                 <button
@@ -129,7 +129,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation }) => {
                   className={`px-1.5 py-0.5 rounded transition-colors font-medium ${
                     currentLocale === lang
                       ? 'text-[#CFBE91]'
-                      : 'text-[#4E4C47] hover:text-[#EFE7D2]'
+                      : 'text-[#9E9A90] hover:text-[#EFE7D2]'
                   }`}
                 >
                   {lang === 'ko' ? '한' : lang.toUpperCase()}
@@ -190,7 +190,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenReservation }) => {
                   <React.Fragment key={lang}>
                     <button
                       onClick={() => { changeLanguage(lang); setMobileMenuOpen(false); }}
-                      className={`text-[10px] font-semibold ${currentLocale === lang ? 'text-[#CFBE91]' : 'text-[#4E4C47]'}`}
+                      className={`text-[10px] font-semibold ${currentLocale === lang ? 'text-[#CFBE91]' : 'text-[#9E9A90]'}`}
                     >
                       {lang === 'ko' ? '한' : lang.toUpperCase()}
                     </button>

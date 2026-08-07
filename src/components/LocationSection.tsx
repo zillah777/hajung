@@ -17,7 +17,7 @@ export const LocationSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="rounded-3xl bg-[#1E1E1E] border border-[#2A2A27] p-8 sm:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden"
+          className="rounded-3xl bg-[#1E1E1E] border border-[#2A2A27] p-5 sm:p-10 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden"
         >
           {/* Ambient glow */}
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-[rgba(207,190,145,0.03)] rounded-full blur-[100px] pointer-events-none" />
@@ -42,8 +42,8 @@ export const LocationSection: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-forum text-lg text-[#EFE7D2] mb-1">{t('addressTitle')}</h3>
-                  <p className="text-[rgba(245,242,234,0.65)] font-inter text-sm">{t('addressLine1')}</p>
-                  <p className="text-[#4E4C47] font-inter text-xs mt-0.5">{t('addressLine2')}</p>
+                  <p className="text-[rgba(245,242,234,0.85)] font-inter text-sm">{t('addressLine1')}</p>
+                  <p className="text-[#9E9A90] font-inter text-xs mt-0.5 font-medium">{t('addressLine2')}</p>
                 </div>
               </div>
 
@@ -54,8 +54,8 @@ export const LocationSection: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-forum text-lg text-[#EFE7D2] mb-1">{t('hoursTitle')}</h3>
-                  <p className="text-[rgba(245,242,234,0.65)] font-inter text-sm">{t('lunchHours')}</p>
-                  <p className="text-[rgba(245,242,234,0.65)] font-inter text-sm mt-1">{t('dinnerHours')}</p>
+                  <p className="text-[rgba(245,242,234,0.85)] font-inter text-sm">{t('lunchHours')}</p>
+                  <p className="text-[rgba(245,242,234,0.85)] font-inter text-sm mt-1">{t('dinnerHours')}</p>
                 </div>
               </div>
 
@@ -65,20 +65,20 @@ export const LocationSection: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a
                     href={`tel:${t('phone')}`}
-                    className="flex items-center gap-3 text-xs text-[rgba(245,242,234,0.55)] hover:text-[#CFBE91] transition-colors p-3 rounded-xl bg-[#111110] border border-[#2A2A27] font-inter"
+                    className="flex items-center gap-3 text-xs text-[rgba(245,242,234,0.80)] hover:text-[#CFBE91] transition-colors p-3 rounded-xl bg-[#111110] border border-[#2A2A27] font-inter"
                   >
                     <Phone className="w-4 h-4 text-[#CFBE91]" />
                     <span>{t('phone')}</span>
                   </a>
                   <a
                     href={`mailto:${t('email')}`}
-                    className="flex items-center gap-3 text-xs text-[rgba(245,242,234,0.55)] hover:text-[#CFBE91] transition-colors p-3 rounded-xl bg-[#111110] border border-[#2A2A27] font-inter"
+                    className="flex items-center gap-3 text-xs text-[rgba(245,242,234,0.80)] hover:text-[#CFBE91] transition-colors p-3 rounded-xl bg-[#111110] border border-[#2A2A27] font-inter"
                   >
                     <Mail className="w-4 h-4 text-[#CFBE91]" />
                     <span>{t('email')}</span>
                   </a>
                 </div>
-                <div className="flex items-center gap-3 text-xs text-[#4E4C47] pt-2 border-t border-[#2A2A27] font-inter">
+                <div className="flex items-center gap-3 text-xs text-[#9E9A90] pt-2 border-t border-[#2A2A27] font-inter font-medium">
                   <Car className="w-4 h-4 text-[#CFBE91] flex-shrink-0" />
                   <span>{t('valet')}</span>
                 </div>
@@ -100,17 +100,17 @@ export const LocationSection: React.FC = () => {
                   href="https://m.place.naver.com/restaurant/1950711047/home"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 py-3.5 px-4 rounded-xl bg-transparent border border-[#2A2A27] hover:border-[rgba(207,190,145,0.3)] text-[rgba(245,242,234,0.6)] hover:text-[#EFE7D2] text-[10px] font-inter font-semibold tracking-[0.18em] uppercase flex items-center justify-center gap-2 transition-all"
+                  className="flex-1 py-3.5 px-4 rounded-xl bg-transparent border border-[#2A2A27] hover:border-[rgba(207,190,145,0.3)] text-[rgba(245,242,234,0.85)] hover:text-[#EFE7D2] text-[10px] font-inter font-semibold tracking-[0.18em] uppercase flex items-center justify-center gap-2 transition-all"
                 >
                   <span className="w-2 h-2 rounded-full bg-[#3CB371]" />
                   <span>{t('naverMapBtn')}</span>
-                  <ExternalLink className="w-3 h-3 text-[#4E4C47]" />
+                  <ExternalLink className="w-3 h-3 text-[#9E9A90]" />
                 </a>
               </div>
             </div>
 
             {/* Right: Map */}
-            <div className="lg:col-span-6 relative h-[480px] rounded-2xl overflow-hidden border border-[#2A2A27] shadow-2xl bg-[#111110] group">
+            <div className="lg:col-span-6 relative h-[320px] sm:h-[400px] lg:h-[480px] rounded-2xl overflow-hidden border border-[#2A2A27] shadow-2xl bg-[#111110] group">
               <iframe
                 title="HAJUNG Location Map"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.1234567890123!2d126.92880!3d37.48200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b62b4f8c34a51%3A0x9c89f5e0b1234567!2z67CA7KSA7Iud64uI!5e0!3m2!1sko!2skr!4v1700000000000!5m2!1sko!2skr"
@@ -118,18 +118,18 @@ export const LocationSection: React.FC = () => {
                 height="100%"
                 style={{ filter: 'invert(90%) hue-rotate(180deg) contrast(1.1) saturate(0.8)' }}
                 loading="lazy"
-                className="w-full h-full opacity-75 group-hover:opacity-95 transition-opacity"
+                className="w-full h-full opacity-90 group-hover:opacity-100 transition-opacity"
               />
 
               {/* Map Pin Card */}
               <div className="absolute top-5 left-5 p-4 rounded-2xl bg-[rgba(10,11,10,0.92)] backdrop-blur-md border border-[#2A2A27] shadow-xl max-w-xs pointer-events-none">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-[#CFBE91] flex items-center justify-center text-[#0A0B0A] font-forum text-sm shadow-md">
+                  <div className="w-8 h-8 rounded-full bg-[#CFBE91] flex items-center justify-center text-[#0A0B0A] font-forum text-sm shadow-md font-bold">
                     하
                   </div>
                   <div>
                     <h4 className="font-forum text-sm text-[#EFE7D2]">HAJUNG (하정식당)</h4>
-                    <span className="text-[10px] text-[#4E4C47] font-inter block">보라매로 22, 봉천동, 관악구, 서울</span>
+                    <span className="text-[10px] text-[#9E9A90] font-inter block font-medium">보라매로 22, 봉천동, 관악구, 서울</span>
                   </div>
                 </div>
               </div>

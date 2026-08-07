@@ -78,7 +78,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
   };
 
   // Input shared styles
-  const inputCls = "w-full px-4 py-3 rounded-xl bg-[#111110] border border-[#2A2A27] text-[#EFE7D2] font-inter text-sm focus:outline-none focus:border-[#CFBE91] transition-colors placeholder:text-[#4E4C47]";
+  const inputCls = "w-full px-4 py-3 rounded-xl bg-[#111110] border border-[#2A2A27] text-[#EFE7D2] font-inter text-sm focus:outline-none focus:border-[#CFBE91] transition-colors placeholder:text-[#66645E]";
 
   if (!isOpen) return null;
 
@@ -96,7 +96,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
           animate={{ scale: 1, y: 0 }}
           exit={{ scale: 0.95, y: 20 }}
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-2xl bg-[#1E1E1E] border border-[#2A2A27] rounded-3xl overflow-hidden shadow-2xl p-6 sm:p-10 my-auto"
+          className="relative w-full max-w-2xl bg-[#1E1E1E] border border-[#2A2A27] rounded-3xl overflow-hidden shadow-2xl p-5 sm:p-10 my-auto max-h-[90vh] overflow-y-auto"
         >
           {/* Close */}
           <button
@@ -112,7 +112,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
             <h2 className="font-forum text-3xl sm:text-4xl text-[#EFE7D2] mt-2">
               {t('title')}
             </h2>
-            <p className="text-[rgba(245,242,234,0.45)] font-inter text-xs sm:text-sm max-w-lg mx-auto mt-2">
+            <p className="text-[rgba(245,242,234,0.80)] font-inter text-xs sm:text-sm max-w-lg mx-auto mt-2">
               {t('subtitle')}
             </p>
           </div>
@@ -125,7 +125,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                 { icon: Users,    label: t('step2'), n: 2 },
                 { icon: User,     label: t('step3'), n: 3 },
               ].map(({ icon: Icon, label, n }) => (
-                <span key={n} className={`flex items-center gap-2 transition-colors ${step >= n ? 'text-[#CFBE91] font-semibold' : 'text-[#333330]'}`}>
+                <span key={n} className={`flex items-center gap-2 transition-colors ${step >= n ? 'text-[#CFBE91] font-semibold' : 'text-[#9E9A90]'}`}>
                   <span className={`w-5 h-5 rounded-full border flex items-center justify-center text-[9px] font-bold ${step >= n ? 'border-[#CFBE91] bg-[rgba(207,190,145,0.1)]' : 'border-[#2A2A27]'}`}>
                     {step > n ? '✓' : n}
                   </span>
@@ -139,7 +139,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
           {step === 1 && (
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
               <div>
-                <label className="block text-[10px] uppercase tracking-widest text-[#4E4C47] font-semibold font-inter mb-2">
+                <label className="block text-[10px] uppercase tracking-widest text-[#9E9A90] font-semibold font-inter mb-2">
                   {t('dateLabel')}
                 </label>
                 <input
@@ -153,7 +153,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
               </div>
 
               <div>
-                <label className="block text-[10px] uppercase tracking-widest text-[#4E4C47] font-semibold font-inter mb-3">
+                <label className="block text-[10px] uppercase tracking-widest text-[#9E9A90] font-semibold font-inter mb-3">
                   {t('timeLabel')}
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -165,7 +165,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                       className={`py-3 px-3 rounded-xl border text-[10px] font-semibold uppercase tracking-wider font-inter transition-all ${
                         selectedTime === time
                           ? 'bg-[#CFBE91] border-[#CFBE91] text-[#0A0B0A] shadow-[0_4px_20px_rgba(207,190,145,0.2)]'
-                          : 'bg-[rgba(10,11,10,0.5)] border-[#2A2A27] text-[#4E4C47] hover:border-[#333330] hover:text-[#EFE7D2]'
+                          : 'bg-[rgba(10,11,10,0.5)] border-[#2A2A27] text-[#9E9A90] hover:border-[#333330] hover:text-[#EFE7D2]'
                       }`}
                     >
                       {time}<br/>
@@ -191,7 +191,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
           {step === 2 && (
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
               <div>
-                <label className="block text-[10px] uppercase tracking-widest text-[#4E4C47] font-semibold font-inter mb-3">
+                <label className="block text-[10px] uppercase tracking-widest text-[#9E9A90] font-semibold font-inter mb-3">
                   {t('guestsLabel')}
                 </label>
                 <div className="flex items-center gap-2.5 flex-wrap">
@@ -203,7 +203,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                       className={`w-12 h-12 rounded-xl border text-sm font-semibold font-inter transition-all ${
                         guests === num
                           ? 'bg-[#CFBE91] border-[#CFBE91] text-[#0A0B0A] shadow-[0_4px_16px_rgba(207,190,145,0.2)]'
-                          : 'bg-[rgba(10,11,10,0.5)] border-[#2A2A27] text-[#4E4C47] hover:border-[#333330] hover:text-[#EFE7D2]'
+                          : 'bg-[rgba(10,11,10,0.5)] border-[#2A2A27] text-[#9E9A90] hover:border-[#333330] hover:text-[#EFE7D2]'
                       }`}
                     >
                       {num}
@@ -213,7 +213,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
               </div>
 
               <div>
-                <label className="block text-[10px] uppercase tracking-widest text-[#4E4C47] font-semibold font-inter mb-3">
+                <label className="block text-[10px] uppercase tracking-widest text-[#9E9A90] font-semibold font-inter mb-3">
                   {t('seatingLabel')}
                 </label>
                 <div className="space-y-3">
@@ -234,7 +234,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                     >
                       <div>
                         <span className="block font-forum text-base text-[#EFE7D2]">{item.title}</span>
-                        <span className="text-xs text-[#4E4C47] font-inter mt-1 block">{item.desc}</span>
+                        <span className="text-xs text-[#9E9A90] font-inter mt-1 block font-medium">{item.desc}</span>
                       </div>
                       {seating === item.id && <CheckCircle2 className="w-5 h-5 text-[#CFBE91] flex-shrink-0 mt-0.5" />}
                     </button>
@@ -244,7 +244,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
 
               <div className="pt-4 flex justify-between">
                 <button type="button" onClick={() => setStep(1)}
-                  className="px-6 py-3 rounded-full border border-[#2A2A27] text-[rgba(245,242,234,0.5)] text-[10px] uppercase tracking-widest font-inter hover:border-[#333330] hover:text-[#EFE7D2] transition-all">
+                  className="px-6 py-3 rounded-full border border-[#2A2A27] text-[rgba(245,242,234,0.80)] text-[10px] uppercase tracking-widest font-inter hover:border-[#333330] hover:text-[#EFE7D2] transition-all">
                   ← Back
                 </button>
                 <button type="button" onClick={() => setStep(3)}
@@ -273,7 +273,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
 
               <div className="pt-4 flex justify-between">
                 <button type="button" onClick={() => setStep(2)}
-                  className="px-6 py-3 rounded-full border border-[#2A2A27] text-[rgba(245,242,234,0.5)] text-[10px] uppercase tracking-widest font-inter hover:border-[#333330] hover:text-[#EFE7D2] transition-all">
+                  className="px-6 py-3 rounded-full border border-[#2A2A27] text-[rgba(245,242,234,0.80)] text-[10px] uppercase tracking-widest font-inter hover:border-[#333330] hover:text-[#EFE7D2] transition-all">
                   ← Back
                 </button>
                 <button type="submit" disabled={isSubmitting}
@@ -297,11 +297,11 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
 
               <h3 className="font-forum text-3xl text-[#EFE7D2]">{t('successTitle')}</h3>
 
-              <p className="text-[rgba(245,242,234,0.55)] font-inter text-sm max-w-md mx-auto leading-relaxed">
+              <p className="text-[rgba(245,242,234,0.85)] font-inter text-sm max-w-md mx-auto leading-relaxed">
                 {t('successDesc')}
               </p>
 
-              <div className="p-5 rounded-2xl bg-[rgba(10,11,10,0.5)] border border-[#2A2A27] text-xs text-[rgba(245,242,234,0.5)] max-w-md mx-auto text-left space-y-2 font-inter">
+              <div className="p-5 rounded-2xl bg-[rgba(10,11,10,0.5)] border border-[#2A2A27] text-xs text-[rgba(245,242,234,0.85)] max-w-md mx-auto text-left space-y-2 font-inter">
                 <div><strong className="text-[#CFBE91]">Date:</strong> {selectedDate} — {selectedTime}</div>
                 <div><strong className="text-[#CFBE91]">Guests:</strong> {guests} Persons</div>
                 <div><strong className="text-[#CFBE91]">Guest:</strong> {name}</div>
@@ -309,7 +309,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
               </div>
 
               <button onClick={handleReset}
-                className="px-8 py-3 rounded-full border border-[#2A2A27] hover:border-[rgba(207,190,145,0.3)] text-[rgba(245,242,234,0.6)] hover:text-[#EFE7D2] text-[10px] uppercase tracking-widest font-semibold font-inter transition-all">
+                className="px-8 py-3 rounded-full border border-[#2A2A27] hover:border-[rgba(207,190,145,0.3)] text-[rgba(245,242,234,0.85)] hover:text-[#EFE7D2] text-[10px] uppercase tracking-widest font-semibold font-inter transition-all">
                 {t('closeBtn')}
               </button>
             </motion.div>

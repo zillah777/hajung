@@ -84,14 +84,14 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
           alt="HAJUNG Menu"
           fill
           className="object-cover"
-          style={{ filter: 'brightness(0.32) contrast(1.12) saturate(0.9)' }}
+          style={{ filter: 'brightness(0.92) contrast(1.04) saturate(0.98)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/85 via-transparent to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/30 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/05 to-transparent" />
 
         {/* Large MENU label at bottom-left */}
         <div className="absolute bottom-8 left-8 md:bottom-10 md:left-10">
-          <span className="text-[10px] text-[#CFBE91] tracking-[0.3em] uppercase block mb-2 font-sans">
+          <span className="text-[10px] text-[#CFBE91] tracking-[0.3em] uppercase block mb-2 font-sans font-medium">
             {t('tagline')}
           </span>
           <h1
@@ -120,7 +120,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
                   transition-all duration-300 border
                   ${activeTab === tab.id
                     ? 'border-[#EFE7D2] text-[#0A0B0A] bg-[#EFE7D2] shadow-[0_2px_14px_rgba(239,231,210,0.12)]'
-                    : 'border-[#2A2A27] text-[#EFE7D2]/40 hover:text-[#EFE7D2]/75 hover:border-[#3A3A37] hover:bg-[rgba(239,231,210,0.03)]'
+                    : 'border-[#2A2A27] text-[#EFE7D2]/75 hover:text-[#EFE7D2] hover:border-[#3A3A37] hover:bg-[rgba(239,231,210,0.03)]'
                   }
                 `}
               >
@@ -170,7 +170,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
                           alt={item.name}
                           fill
                           className="object-cover group-hover:scale-110 transition-transform duration-500"
-                          style={{ filter: 'brightness(0.85)' }}
+                          style={{ filter: 'brightness(0.95)' }}
                         />
                       </div>
 
@@ -189,7 +189,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
                         </div>
 
                         {/* Description */}
-                        <p className="text-[11px] text-[#EFE7D2]/35 leading-relaxed line-clamp-1">
+                        <p className="text-[11px] text-[#EFE7D2]/78 leading-relaxed line-clamp-1">
                           {item.description}
                         </p>
                       </div>
