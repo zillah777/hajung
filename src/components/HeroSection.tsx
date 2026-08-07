@@ -23,9 +23,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
     (videoRef as React.MutableRefObject<HTMLVideoElement | null>).current = node;
     node.defaultMuted = true;
     node.muted = true;
+    node.loop = true;
     node.setAttribute('muted', '');
     node.setAttribute('playsinline', '');
     node.setAttribute('webkit-playsinline', 'true');
+    node.setAttribute('loop', '');
 
     const attemptPlay = () => {
       node.play().catch(() => {});
@@ -40,21 +42,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       return;
     }
 
-    // On mobile, trigger title animation on ended or timer fallback
-    const onEnded = () => {
-      if (!hasEndedOnce.current) {
-        hasEndedOnce.current = true;
-        setShowTitle(true);
+    // On mobile, trigger title animation on first cycle completion detected via timeupdate
+    let lastTime = 0;
+    const onTimeUpdate = () => {
+      const current = node.currentTime;
+      if (node.duration && (current < lastTime || current >= node.duration - 0.5)) {
+        if (!hasEndedOnce.current) {
+          hasEndedOnce.current = true;
+          setShowTitle(true);
+        }
       }
+      lastTime = current;
     };
-    node.addEventListener('ended', onEnded);
+    node.addEventListener('timeupdate', onTimeUpdate);
 
     const fallbackTimer = setTimeout(() => {
       if (!hasEndedOnce.current) {
         hasEndedOnce.current = true;
         setShowTitle(true);
       }
-    }, 3500);
+    }, 4000);
 
     const handleInteraction = () => {
       attemptPlay();
@@ -67,21 +74,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
     window.addEventListener('scroll', handleInteraction, { passive: true });
 
     return () => {
-      node.removeEventListener('ended', onEnded);
+      node.removeEventListener('timeupdate', onTimeUpdate);
       window.removeEventListener('touchstart', handleInteraction);
       window.removeEventListener('pointerdown', handleInteraction);
       window.removeEventListener('scroll', handleInteraction);
       clearTimeout(fallbackTimer);
     };
   }, []);
-
-  // On mobile: After title is shown, ensure loop is active and video continues playing
-  React.useEffect(() => {
-    if (showTitle && videoRef.current) {
-      videoRef.current.loop = true;
-      videoRef.current.play().catch(() => {});
-    }
-  }, [showTitle]);
 
   const rightCards = [
     {
