@@ -19,39 +19,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
   const hasEndedOnce = React.useRef(false);
 
   React.useEffect(() => {
-    const vid = videoRef.current;
+    const vid = document.getElementById('hero-bg-video') as HTMLVideoElement | null;
     if (!vid) return;
 
-    vid.defaultMuted = true;
     vid.muted = true;
-    vid.loop = true;
-    vid.setAttribute('muted', '');
-    vid.setAttribute('playsinline', '');
-    vid.setAttribute('webkit-playsinline', 'true');
-    vid.setAttribute('loop', '');
-
-    const playVideo = () => {
-      vid.muted = true;
-      const promise = vid.play();
-      if (promise !== undefined) {
-        promise.catch(() => {});
-      }
-    };
-
-    playVideo();
-
-    vid.addEventListener('loadstart', playVideo);
-    vid.addEventListener('loadeddata', playVideo);
-    vid.addEventListener('canplay', playVideo);
-    vid.addEventListener('canplaythrough', playVideo);
-
-    const retryInterval = setInterval(() => {
-      if (vid.paused) {
-        playVideo();
-      } else {
-        clearInterval(retryInterval);
-      }
-    }, 250);
+    vid.defaultMuted = true;
+    vid.play().catch(() => {});
 
     const isMobile = window.innerWidth < 768;
 
@@ -79,23 +52,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       }, 4000);
 
       return () => {
-        clearInterval(retryInterval);
-        vid.removeEventListener('loadstart', playVideo);
-        vid.removeEventListener('loadeddata', playVideo);
-        vid.removeEventListener('canplay', playVideo);
-        vid.removeEventListener('canplaythrough', playVideo);
         vid.removeEventListener('timeupdate', onTimeUpdate);
         clearTimeout(fallbackTimer);
       };
     }
-
-    return () => {
-      clearInterval(retryInterval);
-      vid.removeEventListener('loadstart', playVideo);
-      vid.removeEventListener('loadeddata', playVideo);
-      vid.removeEventListener('canplay', playVideo);
-      vid.removeEventListener('canplaythrough', playVideo);
-    };
   }, []);
 
   const rightCards = [
@@ -132,31 +92,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
         transition={{ duration: 1.2 }}
         className="relative flex-shrink-0 w-full md:w-[57.5%] h-[48dvh] md:h-full rounded-none md:rounded-r-2xl overflow-hidden"
       >
-        {/* ── Video Background (portada.mp4) ── */}
-        <video
-          ref={videoRef}
-          src="/videos/portada.mp4"
-          autoPlay
-          muted
-          // @ts-ignore
-          defaultMuted
-          loop
-          playsInline
-          controls={false}
-          // @ts-ignore
-          webkit-playsinline="true"
-          // @ts-ignore
-          x5-playsinline="true"
-          preload="auto"
-          // @ts-ignore
-          disablePictureInPicture
-          // @ts-ignore
-          disableRemotePlayback
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          style={{ filter: 'brightness(0.92) contrast(1.04) saturate(0.98)' }}
-        >
-          <source src="/videos/portada.mp4" type="video/mp4" />
-        </video>
+        {/* ── Video Background (portada.mp4 via raw HTML for Safari autoplay) ── */}
+        <div
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          dangerouslySetInnerHTML={{
+            __html: `
+              <video
+                id="hero-bg-video"
+                src="/videos/portada.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                webkit-playsinline="true"
+                x5-playsinline="true"
+                preload="auto"
+                style="width:100%;height:100%;object-fit:cover;filter:brightness(0.92) contrast(1.04) saturate(0.98);pointer-events:none;"
+              >
+                <source src="/videos/portada.mp4" type="video/mp4" />
+              </video>
+            `
+          }}
+        />
 
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/50 via-[#080908]/15 to-transparent" />
