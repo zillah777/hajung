@@ -49,11 +49,11 @@ const categoryImages: Record<string, string[]> = {
 const DiamondTitle = ({ children }: { children: React.ReactNode }) => (
   <div className="flex items-center gap-4 justify-center my-5">
     <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#CFBE91]/40" />
-    <span className="text-[#CFBE91]/60 text-xs">◇</span>
+    <span className="w-1.5 h-1.5 rounded-full bg-[#CFBE91]/50 flex-shrink-0" />
     <h2 className="font-serif text-lg md:text-xl tracking-[0.22em] text-[#EFE7D2] uppercase">
       {children}
     </h2>
-    <span className="text-[#CFBE91]/60 text-xs">◇</span>
+    <span className="w-1.5 h-1.5 rounded-full bg-[#CFBE91]/50 flex-shrink-0" />
     <div className="flex-1 h-[1px] bg-gradient-to-l from-transparent to-[#CFBE91]/40" />
   </div>
 );

@@ -40,14 +40,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
   ];
 
   return (
-    <section className="relative flex flex-col md:flex-row h-screen overflow-hidden">
+    <section className="relative flex flex-col md:flex-row h-screen overflow-hidden gap-1.5 md:gap-3 bg-[#0A0B0A] p-0 md:p-1.5">
 
       {/* ── LEFT PANEL ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2 }}
-        className="relative flex-shrink-0 w-full md:w-[58%] h-[50vh] md:h-full"
+        className="relative flex-shrink-0 w-full md:w-[57.5%] h-[50vh] md:h-full rounded-none md:rounded-r-2xl overflow-hidden"
       >
         {/* ── Video Background (portada.mp4) ── */}
         <video
@@ -135,7 +135,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       </motion.div>
 
       {/* ── RIGHT PANEL: 3 stacked image cards ── */}
-      <div className="flex-1 flex flex-col h-[50vh] md:h-full bg-[#0D0D0C]">
+      <div className="flex-1 flex flex-col h-[50vh] md:h-full bg-[#0D0D0C] rounded-none md:rounded-l-2xl overflow-hidden gap-1.5">
         {rightCards.map((card, idx) => {
           const CardTag = card.isButton ? 'button' : 'a';
           const cardProps = card.isButton

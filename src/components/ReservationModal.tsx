@@ -169,7 +169,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                       }`}
                     >
                       {time}<br/>
-                      <span className="opacity-60">{time.startsWith('12') || time.startsWith('13') ? 'Lunch' : 'Dinner'}</span>
+                      <span className="opacity-60">{time.startsWith('12') || time.startsWith('13') ? t('lunch') : t('dinner')}</span>
                     </button>
                   ))}
                 </div>
@@ -181,7 +181,7 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                   onClick={() => setStep(2)}
                   className="px-8 py-3 rounded-full bg-[#CFBE91] hover:bg-[#EFE7D2] text-[#0A0B0A] font-inter text-[10px] uppercase tracking-[0.2em] font-semibold shadow-[0_4px_20px_rgba(207,190,145,0.2)] transition-all"
                 >
-                  Next →
+                  {t('nextBtn')}
                 </button>
               </div>
             </motion.div>
@@ -218,9 +218,9 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
                 </label>
                 <div className="space-y-3">
                   {[
-                    { id: 'counter', title: t('counterSeating'), desc: 'Live experience directly with Master Chef Ha-Jung at the counter' },
-                    { id: 'private', title: t('privateRoom'),    desc: 'Contemporary tatami room with dedicated full table service' },
-                    { id: 'dining',  title: t('diningRoom'),     desc: 'Elegant table overlooking the stone zen garden courtyard' },
+                    { id: 'counter', title: t('counterSeating'), desc: t('counterDesc') },
+                    { id: 'private', title: t('privateRoom'),    desc: t('privateDesc') },
+                    { id: 'dining',  title: t('diningRoom'),     desc: t('diningDesc') },
                   ].map((item) => (
                     <button
                       key={item.id}
@@ -245,11 +245,11 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
               <div className="pt-4 flex justify-between">
                 <button type="button" onClick={() => setStep(1)}
                   className="px-6 py-3 rounded-full border border-[#2A2A27] text-[rgba(245,242,234,0.80)] text-[10px] uppercase tracking-widest font-inter hover:border-[#333330] hover:text-[#EFE7D2] transition-all">
-                  ← Back
+                  {t('backBtn')}
                 </button>
                 <button type="button" onClick={() => setStep(3)}
                   className="px-8 py-3 rounded-full bg-[#CFBE91] hover:bg-[#EFE7D2] text-[#0A0B0A] font-inter text-[10px] uppercase tracking-[0.2em] font-semibold shadow-[0_4px_20px_rgba(207,190,145,0.2)] transition-all">
-                  Next →
+                  {t('nextBtn')}
                 </button>
               </div>
             </motion.div>
@@ -274,12 +274,12 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
               <div className="pt-4 flex justify-between">
                 <button type="button" onClick={() => setStep(2)}
                   className="px-6 py-3 rounded-full border border-[#2A2A27] text-[rgba(245,242,234,0.80)] text-[10px] uppercase tracking-widest font-inter hover:border-[#333330] hover:text-[#EFE7D2] transition-all">
-                  ← Back
+                  {t('backBtn')}
                 </button>
                 <button type="submit" disabled={isSubmitting}
                   className="px-8 py-3 rounded-full bg-[#CFBE91] hover:bg-[#EFE7D2] disabled:opacity-60 text-[#0A0B0A] font-inter text-[10px] uppercase tracking-[0.2em] font-semibold flex items-center gap-2 shadow-[0_4px_20px_rgba(207,190,145,0.2)] transition-all">
                   {isSubmitting ? (
-                    <span className="animate-pulse">Processing...</span>
+                    <span className="animate-pulse">{t('processing')}</span>
                   ) : (
                     <><Sparkles className="w-4 h-4" /><span>{t('confirmBtn')}</span></>
                   )}
@@ -302,10 +302,10 @@ export const ReservationModal: React.FC<ReservationModalProps> = ({ isOpen, onCl
               </p>
 
               <div className="p-5 rounded-2xl bg-[rgba(10,11,10,0.5)] border border-[#2A2A27] text-xs text-[rgba(245,242,234,0.85)] max-w-md mx-auto text-left space-y-2 font-inter">
-                <div><strong className="text-[#CFBE91]">Date:</strong> {selectedDate} — {selectedTime}</div>
-                <div><strong className="text-[#CFBE91]">Guests:</strong> {guests} Persons</div>
-                <div><strong className="text-[#CFBE91]">Guest:</strong> {name}</div>
-                <div><strong className="text-[#CFBE91]">Reservation Code:</strong> #HJ-{Math.floor(100000 + Math.random() * 900000)}</div>
+                <div><strong className="text-[#CFBE91]">{t('dateSummary')}:</strong> {selectedDate} — {selectedTime}</div>
+                <div><strong className="text-[#CFBE91]">{t('guestsSummary')}:</strong> {guests} {t('personsLabel')}</div>
+                <div><strong className="text-[#CFBE91]">{t('guestSummary')}:</strong> {name}</div>
+                <div><strong className="text-[#CFBE91]">{t('codeSummary')}:</strong> #HJ-{Math.floor(100000 + Math.random() * 900000)}</div>
               </div>
 
               <button onClick={handleReset}

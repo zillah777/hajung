@@ -44,8 +44,7 @@ export const Experience: React.FC = () => {
             {/* Left: Narrative Copy */}
             <div className="lg:col-span-6 space-y-6">
               <h3 className="font-forum text-2xl sm:text-3xl text-[rgba(245,242,234,0.9)] tracking-wider font-normal">
-                Yakisugi & Wabi-Sabi{' '}
-                <span className="italic text-[#CFBE91]">Omakase Sanctuary</span>
+                {t('subtitleHeading')}
               </h3>
 
               <p className="text-[rgba(245,242,234,0.85)] font-inter text-base leading-relaxed">
@@ -59,12 +58,12 @@ export const Experience: React.FC = () => {
               <div className="pt-5 flex items-center gap-8 border-t border-[#2A2A27]">
                 <div>
                   <span className="block font-forum text-2xl text-[#EFE7D2] font-normal">旬 (Shun)</span>
-                  <span className="text-[10px] uppercase tracking-widest text-[#9E9A90] font-inter font-medium">Micro-Seasonality</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#9E9A90] font-inter font-medium">{t('shunLabel')}</span>
                 </div>
                 <div className="w-[1px] h-10 bg-[#2A2A27]" />
                 <div>
                   <span className="block font-forum text-2xl text-[#EFE7D2] font-normal">匠 (Takumi)</span>
-                  <span className="text-[10px] uppercase tracking-widest text-[#9E9A90] font-inter font-medium">Master Artistry</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#9E9A90] font-inter font-medium">{t('takumiLabel')}</span>
                 </div>
               </div>
             </div>
@@ -80,8 +79,8 @@ export const Experience: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/35 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-[10px] uppercase tracking-widest text-[#CFBE91] font-semibold font-inter block">Craftsmanship</span>
-                  <span className="text-xs text-[rgba(245,242,234,0.9)] font-forum">Precision Knife Technique</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#CFBE91] font-semibold font-inter block">{t('craftBadge')}</span>
+                  <span className="text-xs text-[rgba(245,242,234,0.9)] font-forum">{t('craftSub')}</span>
                 </div>
               </div>
 
@@ -94,8 +93,8 @@ export const Experience: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/35 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-[10px] uppercase tracking-widest text-[#CFBE91] font-semibold font-inter block">Binchotan</span>
-                  <span className="text-xs text-[rgba(245,242,234,0.9)] font-forum">Oak Charcoal Fire</span>
+                  <span className="text-[10px] uppercase tracking-widest text-[#CFBE91] font-semibold font-inter block">{t('fireBadge')}</span>
+                  <span className="text-xs text-[rgba(245,242,234,0.9)] font-forum">{t('fireSub')}</span>
                 </div>
               </div>
             </div>
