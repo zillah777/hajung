@@ -18,67 +18,67 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const hasEndedOnce = React.useRef(false);
 
-  const setVideoRef = React.useCallback((node: HTMLVideoElement | null) => {
-    if (!node) return;
-    (videoRef as React.MutableRefObject<HTMLVideoElement | null>).current = node;
-    node.defaultMuted = true;
-    node.muted = true;
-    node.loop = true;
-    node.setAttribute('muted', '');
-    node.setAttribute('playsinline', '');
-    node.setAttribute('webkit-playsinline', 'true');
-    node.setAttribute('loop', '');
+  React.useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
 
-    const attemptPlay = () => {
-      node.play().catch(() => {});
+    vid.defaultMuted = true;
+    vid.muted = true;
+    vid.loop = true;
+    vid.setAttribute('muted', '');
+    vid.setAttribute('playsinline', '');
+    vid.setAttribute('webkit-playsinline', 'true');
+    vid.setAttribute('loop', '');
+
+    const safePlay = () => {
+      vid.muted = true;
+      const p = vid.play();
+      if (p !== undefined) {
+        p.catch(() => {});
+      }
     };
 
-    attemptPlay();
+    safePlay();
 
-    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    vid.addEventListener('loadedmetadata', safePlay);
+    vid.addEventListener('canplay', safePlay);
+
+    const isMobile = window.innerWidth < 768;
 
     if (!isMobile) {
       setShowTitle(true);
-      return;
-    }
+    } else {
+      let lastTime = 0;
+      const onTimeUpdate = () => {
+        const current = vid.currentTime;
+        if (vid.duration && (current < lastTime || current >= vid.duration - 0.5)) {
+          if (!hasEndedOnce.current) {
+            hasEndedOnce.current = true;
+            setShowTitle(true);
+          }
+        }
+        lastTime = current;
+      };
+      vid.addEventListener('timeupdate', onTimeUpdate);
 
-    // On mobile, trigger title animation on first cycle completion detected via timeupdate
-    let lastTime = 0;
-    const onTimeUpdate = () => {
-      const current = node.currentTime;
-      if (node.duration && (current < lastTime || current >= node.duration - 0.5)) {
+      const fallbackTimer = setTimeout(() => {
         if (!hasEndedOnce.current) {
           hasEndedOnce.current = true;
           setShowTitle(true);
         }
-      }
-      lastTime = current;
-    };
-    node.addEventListener('timeupdate', onTimeUpdate);
+      }, 4000);
 
-    const fallbackTimer = setTimeout(() => {
-      if (!hasEndedOnce.current) {
-        hasEndedOnce.current = true;
-        setShowTitle(true);
-      }
-    }, 4000);
-
-    const handleInteraction = () => {
-      attemptPlay();
-      window.removeEventListener('touchstart', handleInteraction);
-      window.removeEventListener('pointerdown', handleInteraction);
-      window.removeEventListener('scroll', handleInteraction);
-    };
-    window.addEventListener('touchstart', handleInteraction, { passive: true });
-    window.addEventListener('pointerdown', handleInteraction, { passive: true });
-    window.addEventListener('scroll', handleInteraction, { passive: true });
+      return () => {
+        vid.removeEventListener('loadedmetadata', safePlay);
+        vid.removeEventListener('canplay', safePlay);
+        vid.removeEventListener('timeupdate', onTimeUpdate);
+        clearTimeout(fallbackTimer);
+      };
+    }
 
     return () => {
-      node.removeEventListener('timeupdate', onTimeUpdate);
-      window.removeEventListener('touchstart', handleInteraction);
-      window.removeEventListener('pointerdown', handleInteraction);
-      window.removeEventListener('scroll', handleInteraction);
-      clearTimeout(fallbackTimer);
+      vid.removeEventListener('loadedmetadata', safePlay);
+      vid.removeEventListener('canplay', safePlay);
     };
   }, []);
 
@@ -118,7 +118,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       >
         {/* ── Video Background (portada.mp4) ── */}
         <video
-          ref={setVideoRef}
+          ref={videoRef}
           src="/videos/portada.mp4"
           autoPlay
           muted
