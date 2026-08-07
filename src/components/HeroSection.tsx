@@ -18,32 +18,44 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const hasEndedOnce = React.useRef(false);
 
-  React.useEffect(() => {
-    const vid = videoRef.current;
-    if (!vid) return;
-
-    // Force DOM properties for strict mobile Safari autoplay compliance
-    vid.defaultMuted = true;
-    vid.muted = true;
-
-    const isMobile = window.innerWidth < 768;
+  const setVideoRef = React.useCallback((node: HTMLVideoElement | null) => {
+    if (!node) return;
+    (videoRef as React.MutableRefObject<HTMLVideoElement | null>).current = node;
+    node.defaultMuted = true;
+    node.muted = true;
+    node.setAttribute('muted', '');
+    node.setAttribute('playsinline', '');
+    node.setAttribute('webkit-playsinline', 'true');
 
     const attemptPlay = () => {
-      vid.play().catch(() => {});
+      node.play().catch(() => {});
     };
 
+    attemptPlay();
+
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
     if (!isMobile) {
-      // Desktop: Continuous loop, title fades in immediately
-      vid.loop = true;
-      attemptPlay();
       setShowTitle(true);
       return;
     }
 
-    // Mobile: Attempt play immediately
-    attemptPlay();
+    // On mobile, trigger title animation on ended or timer fallback
+    const onEnded = () => {
+      if (!hasEndedOnce.current) {
+        hasEndedOnce.current = true;
+        setShowTitle(true);
+      }
+    };
+    node.addEventListener('ended', onEnded);
 
-    // Fallback: If mobile Low-Power Mode blocks initial autoplay, start on first touch/scroll
+    const fallbackTimer = setTimeout(() => {
+      if (!hasEndedOnce.current) {
+        hasEndedOnce.current = true;
+        setShowTitle(true);
+      }
+    }, 3500);
+
     const handleInteraction = () => {
       attemptPlay();
       window.removeEventListener('touchstart', handleInteraction);
@@ -54,25 +66,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
     window.addEventListener('pointerdown', handleInteraction, { passive: true });
     window.addEventListener('scroll', handleInteraction, { passive: true });
 
-    // Event listener for video end
-    const onEnded = () => {
-      if (!hasEndedOnce.current) {
-        hasEndedOnce.current = true;
-        setShowTitle(true);
-      }
-    };
-    vid.addEventListener('ended', onEnded);
-
-    // Fallback timer: Reveal title after 4 seconds if ended event doesn't fire
-    const fallbackTimer = setTimeout(() => {
-      if (!hasEndedOnce.current) {
-        hasEndedOnce.current = true;
-        setShowTitle(true);
-      }
-    }, 4000);
-
     return () => {
-      vid.removeEventListener('ended', onEnded);
+      node.removeEventListener('ended', onEnded);
       window.removeEventListener('touchstart', handleInteraction);
       window.removeEventListener('pointerdown', handleInteraction);
       window.removeEventListener('scroll', handleInteraction);
@@ -124,7 +119,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       >
         {/* ── Video Background (portada.mp4) ── */}
         <video
-          ref={videoRef}
+          ref={setVideoRef}
+          src="/videos/portada.mp4"
           autoPlay
           muted
           loop
@@ -134,7 +130,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
           // @ts-ignore
           x5-playsinline="true"
           preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
+          // @ts-ignore
+          disablePictureInPicture
+          // @ts-ignore
+          disableRemotePlayback
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
           style={{ filter: 'brightness(0.92) contrast(1.04) saturate(0.98)' }}
         >
           <source src="/videos/portada.mp4" type="video/mp4" />
