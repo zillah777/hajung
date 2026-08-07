@@ -141,49 +141,44 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
         <div className="absolute inset-0 bg-gradient-to-t from-[#080908]/50 via-[#080908]/15 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#080908]/20 via-transparent to-transparent" />
 
-        {/* Main headline — fades in after video first play ends */}
+        {/* Main headline & social links — bottom left */}
         <div
-          className="absolute bottom-6 md:bottom-10 left-6 md:left-8 pr-6 md:pr-12 transition-all duration-[1500ms] ease-out"
+          className="absolute bottom-5 md:bottom-10 left-5 md:left-8 pr-5 md:pr-12 transition-all duration-[1500ms] ease-out flex flex-col gap-3 md:gap-5 z-10"
           style={{ opacity: showTitle ? 1 : 0, transform: showTitle ? 'translateY(0)' : 'translateY(24px)' }}
         >
           <h1
-            className="font-serif text-[#EFE7D2] leading-[0.88] tracking-[-0.01em] select-none"
-            style={{ fontSize: 'clamp(42px, 6.5vw, 96px)' }}
+            className="font-serif text-[#EFE7D2] leading-[0.92] md:leading-[0.88] tracking-[-0.01em] select-none"
+            style={{ fontSize: 'clamp(26px, 5.5vw, 96px)' }}
           >
             {t('titleLine1')}<br />
             <span className="text-[#CFBE91] italic">{t('titleHighlight')}</span>
           </h1>
-        </div>
 
-        {/* Social icons — bottom left below title */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.9 }}
-          className="absolute bottom-6 left-8 flex items-center gap-5"
-        >
-          <a
-            href="https://www.instagram.com/hajung.kitchen/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[#EFE7D2]/75 hover:text-[#CFBE91] transition-colors"
-            aria-label="Instagram"
-          >
-            <Instagram className="w-4 h-4" />
-          </a>
-          <a
-            href="https://x.com"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[#EFE7D2]/75 hover:text-[#CFBE91] transition-colors"
-            aria-label="X / Twitter"
-          >
-            <Twitter className="w-4 h-4" />
-          </a>
-          <span className="text-[9px] text-[#EFE7D2]/65 tracking-[0.3em] uppercase font-medium">
-            @hajung.kitchen
-          </span>
-        </motion.div>
+          {/* Social icons */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.instagram.com/hajung.kitchen/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[#EFE7D2]/75 hover:text-[#CFBE91] transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-3.5 h-3.5 md:w-4 md:h-4" />
+            </a>
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noreferrer"
+              className="text-[#EFE7D2]/75 hover:text-[#CFBE91] transition-colors"
+              aria-label="X / Twitter"
+            >
+              <Twitter className="w-3.5 h-3.5 md:w-4 md:h-4" />
+            </a>
+            <span className="text-[8px] md:text-[9px] text-[#EFE7D2]/65 tracking-[0.25em] md:tracking-[0.3em] uppercase font-medium">
+              @hajung.kitchen
+            </span>
+          </div>
+        </div>
 
         {/* Scroll indicator */}
         <motion.div
