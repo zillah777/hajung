@@ -24,7 +24,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
 
     vid.muted = true;
     vid.defaultMuted = true;
-    vid.play().catch(() => {});
+
+    const playMedia = () => {
+      vid.muted = true;
+      vid.play().catch(() => {});
+    };
+
+    playMedia();
+    vid.addEventListener('loadeddata', playMedia);
+    vid.addEventListener('canplay', playMedia);
 
     const isMobile = window.innerWidth < 768;
 
@@ -52,10 +60,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
       }, 4000);
 
       return () => {
+        vid.removeEventListener('loadeddata', playMedia);
+        vid.removeEventListener('canplay', playMedia);
         vid.removeEventListener('timeupdate', onTimeUpdate);
         clearTimeout(fallbackTimer);
       };
     }
+
+    return () => {
+      vid.removeEventListener('loadeddata', playMedia);
+      vid.removeEventListener('canplay', playMedia);
+    };
   }, []);
 
   const rightCards = [
@@ -108,9 +123,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
                 x5-playsinline="true"
                 preload="auto"
                 style="width:100%;height:100%;object-fit:cover;filter:brightness(0.92) contrast(1.04) saturate(0.98);pointer-events:none;"
-              >
-                <source src="/videos/portada.mp4" type="video/mp4" />
-              </video>
+              ></video>
             `
           }}
         />
