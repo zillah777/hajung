@@ -21,6 +21,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
   React.useEffect(() => {
     const vid = videoRef.current;
     if (!vid) return;
+
+    const isMobile = window.innerWidth < 768;
+
+    if (!isMobile) {
+      // Desktop: Continuous loop, title fades in immediately on page load
+      vid.loop = true;
+      vid.play().catch(() => {});
+      setShowTitle(true);
+      return;
+    }
+
+    // Mobile: Play once, then reveal title with fade-in + slide-up on video end
+    vid.loop = false;
     vid.play().catch(() => {});
 
     const onEnded = () => {
@@ -33,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
     return () => vid.removeEventListener('ended', onEnded);
   }, []);
 
-  // After first ended event, let video keep looping
+  // On mobile: After first ended event, enable loop and resume video
   React.useEffect(() => {
     if (showTitle && videoRef.current) {
       videoRef.current.loop = true;
