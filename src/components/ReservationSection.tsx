@@ -85,7 +85,7 @@ export const ReservationSection: React.FC = () => {
       {/* ── LEFT PANEL ── */}
       <div className="relative flex-shrink-0 w-full md:w-[48%] h-[38vh] md:h-full">
         <Image
-          src="/images/restaurant/item-16.jpg"
+          src="/images/hajung/drinks-2.jpeg"
           alt="Reserve a table at HAJUNG"
           fill
           className="object-cover object-center"
