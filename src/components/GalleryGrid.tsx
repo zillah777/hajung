@@ -16,17 +16,17 @@ export const GalleryGrid: React.FC = () => {
     { src: '/images/restaurant/item-3.jpg', title: 'Binchotan Oak Grill', span: 'col-span-6 md:col-span-3' },
     { src: '/images/restaurant/item-4.jpg', title: 'Grand Omakase Course', span: 'col-span-6 md:col-span-3' },
     { src: '/images/restaurant/item-5.jpg', title: 'Seasonal Kaiseki Starter', span: 'col-span-6 md:col-span-3' },
-    { src: '/images/restaurant/item-6.jpg', title: 'Otoro Caviar Creation', span: 'col-span-12 md:col-span-6' },
+    { src: '/images/hajung/drinks-2.jpeg', title: 'Korean Craft Spirits', span: 'col-span-12 md:col-span-6' },
     { src: '/images/restaurant/item-7.jpg', title: 'Hokkaido Uni Gunkan', span: 'col-span-6 md:col-span-3' },
     { src: '/images/restaurant/item-8.jpg', title: 'Shima-Aji Ponzu', span: 'col-span-6 md:col-span-3' },
     { src: '/images/restaurant/item-9.jpg', title: 'Hanwoo A5 Binchotan', span: 'col-span-6 md:col-span-3' },
     { src: '/images/restaurant/item-10.jpg', title: 'Saikyo Miso Gindara', span: 'col-span-6 md:col-span-3' },
-    { src: '/images/restaurant/item-11.jpg', title: 'Dassai 23 Reserve', span: 'col-span-6 md:col-span-4' },
+    { src: '/images/hajung/drinks-3.jpeg', title: 'Traditional Korean Spirits', span: 'col-span-6 md:col-span-4' },
     { src: '/images/restaurant/item-12.jpg', title: 'Artisanal Pottery', span: 'col-span-6 md:col-span-4' },
     { src: '/images/restaurant/item-13.jpg', title: 'Zen Dining Interior', span: 'col-span-12 md:col-span-4' },
     { src: '/images/restaurant/item-14.jpg', title: 'Private Room Table', span: 'col-span-6 md:col-span-6' },
     { src: '/images/restaurant/item-15.jpg', title: 'Seasonal Matcha Dessert', span: 'col-span-6 md:col-span-3' },
-    { src: '/images/restaurant/item-16.jpg', title: 'Evening Ambiance', span: 'col-span-12 md:col-span-3' },
+    { src: '/images/hajung/drinks-4.jpeg', title: 'Artisanal Korean Spirits', span: 'col-span-12 md:col-span-3' },
   ];
 
   return (

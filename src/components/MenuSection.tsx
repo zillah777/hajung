@@ -37,12 +37,14 @@ const categoryImages: Record<string, string[]> = {
     '/images/restaurant/item-9.jpg',
   ],
   liquors: [
-    '/images/restaurant/item-6.jpg',
-    '/images/restaurant/item-16.jpg',
+    '/images/hajung/drinks-2.jpeg',
+    '/images/hajung/drinks-3.jpeg',
+    '/images/hajung/drinks-4.jpeg',
   ],
   drinks: [
-    '/images/restaurant/item-16.jpg',
-    '/images/restaurant/item-6.jpg',
+    '/images/hajung/drinks-4.jpeg',
+    '/images/hajung/drinks-2.jpeg',
+    '/images/hajung/drinks-3.jpeg',
   ],
 };
 
