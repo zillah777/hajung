@@ -163,10 +163,10 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
                   return (
                     <div
                       key={item.id || idx}
-                      className="group flex items-center gap-4 py-3.5 border-b border-[#161614] last:border-b-0 hover:bg-[rgba(207,190,145,0.025)] transition-colors -mx-1 px-1 rounded-lg"
+                      className="group relative flex items-center gap-4 py-3.5 border-b border-[#161614] last:border-b-0 hover:bg-[rgba(207,190,145,0.04)] transition-all duration-300 -mx-2 px-2 rounded-xl"
                     >
                       {/* Thumbnail Photo */}
-                      <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-[#222220]">
+                      <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-[#222220] group-hover:border-[#CFBE91]/50 group-hover:shadow-[0_0_12px_rgba(207,190,145,0.25)] transition-all duration-500">
                         <Image
                           src={imgSrc}
                           alt={item.name}
@@ -184,14 +184,14 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
                             {item.name}
                           </span>
                           {item.badge && (
-                            <span className="text-[7.5px] px-2 py-0.5 rounded-full border border-[rgba(207,190,145,0.3)] bg-[rgba(207,190,145,0.07)] text-[#CFBE91] tracking-wider uppercase font-medium flex-shrink-0 mt-0.5">
+                            <span className="text-[7.5px] px-2 py-0.5 rounded-full border border-[rgba(207,190,145,0.3)] bg-[rgba(207,190,145,0.07)] text-[#CFBE91] tracking-wider uppercase font-medium flex-shrink-0 mt-0.5 group-hover:border-[#CFBE91]/70">
                               {item.badge}
                             </span>
                           )}
                         </div>
 
                         {/* Description */}
-                        <p className="text-[11px] text-[#EFE7D2]/78 leading-relaxed line-clamp-1">
+                        <p className="text-[11px] text-[#EFE7D2]/78 leading-relaxed line-clamp-1 group-hover:text-[#EFE7D2]/95 transition-colors">
                           {item.description}
                         </p>
                       </div>
@@ -207,10 +207,11 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
         <div className="flex-shrink-0 px-5 py-4 border-t border-[#1A1A18] bg-[#0D0D0C]/98 backdrop-blur-md">
           <button
             onClick={onOpenReservation}
-            className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl bg-[#CFBE91] hover:bg-[#EFE7D2] text-[#0A0B0A] text-[10px] uppercase tracking-[0.22em] font-semibold transition-all duration-300 hover:scale-[1.015] active:scale-[0.985] shadow-[0_4px_24px_rgba(207,190,145,0.18)]"
+            className="group relative w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl bg-[#CFBE91] hover:bg-[#EFE7D2] text-[#0A0B0A] text-[10px] uppercase tracking-[0.22em] font-semibold transition-all duration-300 hover:scale-[1.015] active:scale-[0.985] shadow-[0_4px_24px_rgba(207,190,145,0.18)] hover:shadow-[0_4px_30px_rgba(207,190,145,0.4)] overflow-hidden"
           >
-            <span>{tNav('bookTable')}</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <span className="relative z-10">{tNav('bookTable')}</span>
+            <ArrowUpRight className="relative z-10 w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <div className="absolute inset-0 shimmer-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </button>
         </div>
       </div>

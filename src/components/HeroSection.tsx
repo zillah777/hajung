@@ -205,13 +205,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 + idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
-              className="flex-1 relative overflow-hidden"
+              className="flex-1 relative overflow-hidden group"
               style={{ borderTop: idx > 0 ? '1px solid #1A1A18' : 'none' }}
             >
               {/* @ts-ignore */}
               <CardTag
                 {...cardProps}
-                className="block w-full h-full relative cursor-pointer group"
+                className="block w-full h-full relative cursor-pointer"
                 onMouseEnter={() => setHovered(card.id)}
                 onMouseLeave={() => setHovered(null)}
               >
@@ -220,22 +220,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenReservation }) =
                   src={card.image}
                   alt={card.label}
                   fill
-                  className="object-cover transition-all duration-700 group-hover:scale-[1.04]"
+                  className="object-cover transition-all duration-700 group-hover:scale-[1.05]"
                   style={{
-                    filter: hovered === card.id ? 'brightness(0.98)' : 'brightness(0.90)',
+                    filter: hovered === card.id ? 'brightness(1.02) contrast(1.02)' : 'brightness(0.90)',
                     transition: 'filter 0.5s ease, transform 0.7s ease',
                   }}
                 />
 
-                {/* Gradient overlay focused on text side (+15% contrast behind text) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/85 via-[#0A0B0A]/35 to-transparent pointer-events-none" />
+                {/* Interactive gradient overlay & subtle golden glow on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0A]/85 via-[#0A0B0A]/35 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(207,190,145,0.08)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                 {/* Label + Arrow */}
-                <div className="absolute bottom-0 left-0 right-0 px-6 pb-5 flex items-end justify-between">
-                  <span className="font-serif text-[clamp(14px,1.4vw,20px)] tracking-[0.2em] text-[#EFE7D2] group-hover:text-[#CFBE91] transition-colors">
+                <div className="absolute bottom-0 left-0 right-0 px-6 pb-5 flex items-end justify-between z-10">
+                  <span className="font-serif text-[clamp(14px,1.4vw,20px)] tracking-[0.2em] text-[#EFE7D2] group-hover:text-[#CFBE91] transition-all duration-300 group-hover:translate-x-1">
                     {card.label}
                   </span>
-                  <div className="w-8 h-8 rounded-full border border-[#EFE7D2]/30 flex items-center justify-center group-hover:bg-[#CFBE91] group-hover:border-[#CFBE91] transition-all duration-300 flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full border border-[#EFE7D2]/30 flex items-center justify-center group-hover:bg-[#CFBE91] group-hover:border-[#CFBE91] group-hover:shadow-[0_0_15px_rgba(207,190,145,0.5)] transition-all duration-300 flex-shrink-0 group-hover:scale-110">
                     <ArrowUpRight className="w-3.5 h-3.5 text-[#EFE7D2] group-hover:text-[#0A0B0A] transition-colors" />
                   </div>
                 </div>

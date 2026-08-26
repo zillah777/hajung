@@ -8,6 +8,9 @@ import { ReservationSection } from '@/components/ReservationSection';
 import { ChefStory } from '@/components/ChefStory';
 import { LocationSection } from '@/components/LocationSection';
 import { Footer } from '@/components/Footer';
+import { ScrollProgress } from '@/components/effects/ScrollProgress';
+import { EmberCanvas } from '@/components/effects/EmberCanvas';
+import { AudioAmbience } from '@/components/effects/AudioAmbience';
 
 export default function HomePage() {
   const scrollToReservation = () => {
@@ -15,7 +18,13 @@ export default function HomePage() {
   };
 
   return (
-    <main className="bg-[#0A0B0A] text-[#EFE7D2] overflow-x-hidden">
+    <main className="bg-[#0A0B0A] text-[#EFE7D2] overflow-x-hidden relative">
+      {/* Golden Scroll Reading Progress Bar */}
+      <ScrollProgress />
+
+      {/* Subtle Floating Binchotan Charcoal Embers Canvas */}
+      <EmberCanvas />
+
       {/* Floating Navbar */}
       <Navbar onOpenReservation={scrollToReservation} />
 
@@ -36,6 +45,9 @@ export default function HomePage() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Optional Zen Dining Soundscape Controller */}
+      <AudioAmbience />
     </main>
   );
 }
