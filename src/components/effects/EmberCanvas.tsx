@@ -12,6 +12,9 @@ interface Particle {
   fadeSpeed: number;
   maxOpacity: number;
   color: string;
+  glowColor: string;
+  wobbleSpeed: number;
+  wobbleAngle: number;
 }
 
 export const EmberCanvas: React.FC = () => {
@@ -40,29 +43,34 @@ export const EmberCanvas: React.FC = () => {
 
     window.addEventListener('resize', handleResize, { passive: true });
 
-    // Ember palette: warm gold, amber, subtle champagne
-    const colors = [
-      'rgba(207, 190, 145,', // Primary gold #CFBE91
-      'rgba(239, 231, 210,', // Champagne #EFE7D2
-      'rgba(168, 144, 96,',  // Amber bronze #A89060
+    // Authentic Binchotan ember palette: glowing gold, warm amber, fiery copper & champagne core
+    const emberPalette = [
+      { fill: 'rgba(255, 178, 86,', glow: 'rgba(255, 130, 45, 0.8)' },   // Fiery Amber
+      { fill: 'rgba(207, 190, 145,', glow: 'rgba(207, 190, 145, 0.7)' },  // Hajung Gold
+      { fill: 'rgba(239, 231, 210,', glow: 'rgba(239, 231, 210, 0.9)' },  // Hot Core White/Champagne
+      { fill: 'rgba(255, 110, 50,', glow: 'rgba(230, 70, 20, 0.75)' },    // Binchotan Coal Spark
     ];
 
-    // Particle density based on screen size
-    const particleCount = width < 768 ? 20 : 40;
+    // Particle density based on screen width
+    const particleCount = width < 768 ? 28 : 55;
     const particles: Particle[] = [];
 
     const createParticle = (initialY?: number): Particle => {
-      const maxOpacity = 0.15 + Math.random() * 0.45;
+      const palette = emberPalette[Math.floor(Math.random() * emberPalette.length)];
+      const maxOpacity = 0.4 + Math.random() * 0.55;
       return {
         x: Math.random() * width,
-        y: initialY !== undefined ? initialY : height + Math.random() * 20,
-        size: 0.8 + Math.random() * 2.2,
-        speedY: -(0.25 + Math.random() * 0.55),
-        speedX: (Math.random() - 0.5) * 0.35,
+        y: initialY !== undefined ? initialY : height + 10 + Math.random() * 30,
+        size: 1.0 + Math.random() * 2.4,
+        speedY: -(0.4 + Math.random() * 0.9), // Upward thermal draft
+        speedX: (Math.random() - 0.5) * 0.4,
         opacity: Math.random() * maxOpacity,
-        fadeSpeed: 0.003 + Math.random() * 0.006,
+        fadeSpeed: 0.004 + Math.random() * 0.008,
         maxOpacity,
-        color: colors[Math.floor(Math.random() * colors.length)],
+        color: palette.fill,
+        glowColor: palette.glow,
+        wobbleSpeed: 0.02 + Math.random() * 0.03,
+        wobbleAngle: Math.random() * Math.PI * 2,
       };
     };
 
@@ -83,26 +91,39 @@ export const EmberCanvas: React.FC = () => {
         for (let i = 0; i < particles.length; i++) {
           const p = particles[i];
 
+          // Thermal drift physics with oscillating wobble
+          p.wobbleAngle += p.wobbleSpeed;
           p.y += p.speedY;
-          p.x += p.speedX + Math.sin(p.y * 0.01) * 0.15;
+          p.x += p.speedX + Math.sin(p.wobbleAngle) * 0.6;
           p.opacity += p.fadeSpeed;
 
-          if (p.opacity > p.maxOpacity || p.opacity < 0.05) {
+          // Glowing pulse
+          if (p.opacity > p.maxOpacity || p.opacity < 0.08) {
             p.fadeSpeed = -p.fadeSpeed;
           }
 
-          // Reset when particle floats off top or fades out
-          if (p.y < -10 || p.x < -10 || p.x > width + 10) {
+          // Reset when particle leaves top or sides
+          if (p.y < -15 || p.x < -20 || p.x > width + 20) {
             particles[i] = createParticle();
           }
 
-          // Draw ember with soft glow
+          // Draw Glowing Ember Core
+          ctx.save();
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
           ctx.fillStyle = `${p.color} ${Math.max(0, p.opacity)})`;
-          ctx.shadowBlur = p.size * 3;
-          ctx.shadowColor = 'rgba(207, 190, 145, 0.4)';
+          ctx.shadowBlur = p.size * 5;
+          ctx.shadowColor = p.glowColor;
           ctx.fill();
+
+          // Subtle brighter micro-center for intense heat effect
+          if (p.size > 1.6) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size * 0.45, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, p.opacity * 1.3)})`;
+            ctx.fill();
+          }
+          ctx.restore();
         }
       }
 
@@ -122,7 +143,8 @@ export const EmberCanvas: React.FC = () => {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="fixed inset-0 pointer-events-none z-[1] opacity-70"
+      className="fixed inset-0 pointer-events-none z-[12] mix-blend-screen"
     />
   );
 };
+
