@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, X, Maximize2, Sparkles, Utensils } from 'lucide-react';
 
 interface MenuSectionProps {
   onOpenReservation: () => void;
@@ -72,12 +72,27 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
   ];
 
   const [activeTab, setActiveTab] = useState('mains');
+  const [selectedDish, setSelectedDish] = useState<(MenuItem & { image: string; categoryName: string }) | null>(null);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedDish(null);
+      }
+    };
+    if (selectedDish) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedDish]);
 
   // Retrieve raw items array from locale json
   const rawItems = (t.raw(`items.${activeTab}`) as MenuItem[]) || [];
+  const currentCategoryLabel = tabs.find((t) => t.id === activeTab)?.label || '';
 
   return (
-    <section id="menu" className="flex flex-col md:flex-row h-auto md:h-screen overflow-hidden">
+    <section id="menu" className="flex flex-col md:flex-row h-auto md:h-screen overflow-hidden relative">
 
       {/* ── LEFT PANEL: Atmospheric Image + MENU title ── */}
       <div className="relative flex-shrink-0 w-full md:w-[44%] h-[38vh] md:h-full">
@@ -142,7 +157,7 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
           {/* Diamond title */}
           <div className="px-6 pt-1">
             <DiamondTitle>
-              {tabs.find((t) => t.id === activeTab)?.label}
+              {currentCategoryLabel}
             </DiamondTitle>
           </div>
 
@@ -163,10 +178,19 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
                   return (
                     <div
                       key={item.id || idx}
-                      className="group relative flex items-center gap-4 py-3.5 border-b border-[#161614] last:border-b-0 hover:bg-[rgba(207,190,145,0.04)] transition-all duration-300 -mx-2 px-2 rounded-xl"
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => setSelectedDish({ ...item, image: imgSrc, categoryName: currentCategoryLabel })}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          setSelectedDish({ ...item, image: imgSrc, categoryName: currentCategoryLabel });
+                        }
+                      }}
+                      className="group relative flex items-center gap-4 py-3.5 border-b border-[#161614] last:border-b-0 hover:bg-[rgba(207,190,145,0.04)] transition-all duration-300 -mx-2 px-2 rounded-xl cursor-pointer"
                     >
-                      {/* Thumbnail Photo */}
-                      <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-[#222220] group-hover:border-[#CFBE91]/50 group-hover:shadow-[0_0_12px_rgba(207,190,145,0.25)] transition-all duration-500">
+                      {/* Thumbnail Photo with expand indicator */}
+                      <div className="relative w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 border border-[#222220] group-hover:border-[#CFBE91]/60 group-hover:shadow-[0_0_15px_rgba(207,190,145,0.25)] transition-all duration-500">
                         <Image
                           src={imgSrc}
                           alt={item.name}
@@ -174,6 +198,9 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
                           className="object-cover group-hover:scale-110 transition-transform duration-500"
                           style={{ filter: 'brightness(0.95)' }}
                         />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <Maximize2 className="w-3.5 h-3.5 text-[#CFBE91]" />
+                        </div>
                       </div>
 
                       {/* Info */}
@@ -195,6 +222,11 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
                           {item.description}
                         </p>
                       </div>
+
+                      {/* Subtle hover arrow hint */}
+                      <div className="text-[#CFBE91] opacity-0 group-hover:opacity-80 transition-all duration-300 group-hover:translate-x-0.5 pr-1 hidden sm:block">
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </div>
                     </div>
                   );
                 })}
@@ -215,6 +247,100 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
           </button>
         </div>
       </div>
+
+      {/* ── DISH DETAIL MODAL / LIGHTBOX ── */}
+      <AnimatePresence>
+        {selectedDish && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => setSelectedDish(null)}
+            className="fixed inset-0 z-50 bg-[#0A0B0A]/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 md:p-8"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.94, y: 15 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-2xl bg-[#141413] border border-[#2A2A27] rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.85)] flex flex-col md:flex-row max-h-[90vh]"
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedDish(null)}
+                aria-label="Cerrar detalle"
+                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-[#1F1F1E]/80 border border-[#333330] text-[#EFE7D2] hover:bg-[#CFBE91] hover:text-[#0A0B0A] hover:border-[#CFBE91] transition-all duration-300 flex items-center justify-center backdrop-blur-md"
+              >
+                <X className="w-4 h-4" />
+              </button>
+
+              {/* Enlarged Dish Photo */}
+              <div className="relative w-full md:w-[50%] h-64 md:h-auto min-h-[260px] bg-[#0A0B0A] overflow-hidden">
+                <Image
+                  src={selectedDish.image}
+                  alt={selectedDish.name}
+                  fill
+                  priority
+                  className="object-cover"
+                  style={{ filter: 'brightness(0.96) contrast(1.04)' }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#141413] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#141413]/80 pointer-events-none" />
+              </div>
+
+              {/* Dish Info Panel */}
+              <div className="flex-1 p-6 md:p-8 flex flex-col justify-between overflow-y-auto">
+                <div className="space-y-4">
+                  {/* Category & Badge */}
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-[8.5px] uppercase tracking-[0.25em] text-[#CFBE91] font-semibold flex items-center gap-1.5">
+                      <Sparkles className="w-2.5 h-2.5" />
+                      {selectedDish.categoryName}
+                    </span>
+                    {selectedDish.badge && (
+                      <span className="text-[8px] px-2.5 py-0.5 rounded-full border border-[rgba(207,190,145,0.4)] bg-[rgba(207,190,145,0.08)] text-[#CFBE91] tracking-wider uppercase font-medium">
+                        {selectedDish.badge}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Dish Title */}
+                  <h3
+                    className="font-serif text-[#EFE7D2] leading-tight tracking-[-0.01em]"
+                    style={{ fontSize: 'clamp(20px, 2.4vw, 28px)' }}
+                  >
+                    {selectedDish.name}
+                  </h3>
+
+                  {/* Divider line */}
+                  <div className="w-12 h-[1px] bg-gradient-to-r from-[#CFBE91] to-transparent" />
+
+                  {/* Description */}
+                  <p className="text-[13px] text-[#EFE7D2]/85 leading-relaxed font-sans">
+                    {selectedDish.description}
+                  </p>
+                </div>
+
+                {/* Booking CTA button inside modal */}
+                <div className="pt-6 mt-6 border-t border-[#222220]">
+                  <button
+                    onClick={() => {
+                      setSelectedDish(null);
+                      onOpenReservation();
+                    }}
+                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#CFBE91] hover:bg-[#EFE7D2] text-[#0A0B0A] text-[10.5px] uppercase tracking-[0.2em] font-semibold transition-all duration-300 hover:scale-[1.01] active:scale-[0.98] shadow-[0_4px_20px_rgba(207,190,145,0.2)]"
+                  >
+                    <Utensils className="w-3.5 h-3.5" />
+                    <span>{t('modalBookThis')}</span>
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
+
