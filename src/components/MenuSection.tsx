@@ -248,93 +248,152 @@ export const MenuSection: React.FC<MenuSectionProps> = ({ onOpenReservation }) =
         </div>
       </div>
 
-      {/* ── DISH DETAIL MODAL / LIGHTBOX ── */}
+      {/* ── DISH DETAIL MODAL / LIGHTBOX (LUXURY EDITORIAL STANDARD) ── */}
       <AnimatePresence>
         {selectedDish && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.35 }}
             onClick={() => setSelectedDish(null)}
-            className="fixed inset-0 z-50 bg-[#0A0B0A]/90 backdrop-blur-2xl flex items-center justify-center p-4 sm:p-6 md:p-8"
+            className="fixed inset-0 z-50 bg-[#070707]/92 backdrop-blur-3xl flex items-center justify-center p-3 sm:p-6 md:p-8"
           >
             <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
+              initial={{ opacity: 0, scale: 0.92, y: 24 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 15 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              exit={{ opacity: 0, scale: 0.92, y: 16 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl bg-[#141413] border border-[#2A2A27] rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.85)] flex flex-col md:flex-row max-h-[90vh]"
+              className="relative w-full max-w-3xl bg-gradient-to-b from-[#171716] to-[#0E0F0E] border border-[#CFBE91]/35 rounded-[28px] overflow-hidden shadow-[0_25px_90px_rgba(0,0,0,0.95),_0_0_60px_rgba(207,190,145,0.12)] flex flex-col md:flex-row max-h-[92vh]"
             >
-              {/* Close Button */}
+              {/* Top Hairline Gold Glow Bar */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#CFBE91] to-transparent z-30" />
+
+              {/* Close Button — Circular Glass with Hover Spin */}
               <button
                 onClick={() => setSelectedDish(null)}
                 aria-label="Cerrar detalle"
-                className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-[#1F1F1E]/80 border border-[#333330] text-[#EFE7D2] hover:bg-[#CFBE91] hover:text-[#0A0B0A] hover:border-[#CFBE91] transition-all duration-300 flex items-center justify-center backdrop-blur-md"
+                className="group absolute top-4 right-4 z-30 w-10 h-10 rounded-full bg-[#111110]/80 border border-[#CFBE91]/30 text-[#EFE7D2] hover:bg-[#CFBE91] hover:text-[#0A0B0A] hover:border-[#CFBE91] hover:shadow-[0_0_20px_rgba(207,190,145,0.5)] transition-all duration-300 flex items-center justify-center backdrop-blur-xl"
               >
-                <X className="w-4 h-4" />
+                <X className="w-4 h-4 transition-transform duration-300 group-hover:rotate-90" />
               </button>
 
-              {/* Enlarged Dish Photo */}
-              <div className="relative w-full md:w-[50%] h-64 md:h-auto min-h-[260px] bg-[#0A0B0A] overflow-hidden">
+              {/* ── LEFT: Enlarged Photo Showcase ── */}
+              <div className="relative w-full md:w-[48%] h-72 sm:h-80 md:h-auto min-h-[280px] bg-[#0A0B0A] overflow-hidden group/img">
                 <Image
                   src={selectedDish.image}
                   alt={selectedDish.name}
                   fill
                   priority
-                  className="object-cover"
-                  style={{ filter: 'brightness(0.96) contrast(1.04)' }}
+                  sizes="(max-width: 768px) 100vw, 48vw"
+                  className="object-cover transition-transform duration-1000 group-hover/img:scale-105"
+                  style={{ filter: 'brightness(0.96) contrast(1.05)' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141413] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-[#141413]/80 pointer-events-none" />
+                
+                {/* Vignette Gradients */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#141413] via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-[#0E0F0E]/30 md:to-[#0E0F0E] pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent pointer-events-none" />
+
+                {/* Bottom Left Watermark Tag on Photo */}
+                <div className="absolute bottom-4 left-4 z-10 hidden sm:block">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 border border-[rgba(207,190,145,0.3)] backdrop-blur-md">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#CFBE91] animate-pulse" />
+                    <span className="text-[8px] uppercase tracking-[0.25em] text-[#EFE7D2]/90 font-medium">
+                      HAJUNG · SEOUL
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              {/* Dish Info Panel */}
-              <div className="flex-1 p-6 md:p-8 flex flex-col justify-between overflow-y-auto">
+              {/* ── RIGHT: Editorial Gastronomic Info ── */}
+              <div className="flex-1 p-6 sm:p-8 md:p-9 flex flex-col justify-between overflow-y-auto bg-gradient-to-b from-transparent to-[#0B0C0B]/80">
                 <div className="space-y-4">
-                  {/* Category & Badge */}
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-[8.5px] uppercase tracking-[0.25em] text-[#CFBE91] font-semibold flex items-center gap-1.5">
-                      <Sparkles className="w-2.5 h-2.5" />
-                      {selectedDish.categoryName}
-                    </span>
-                    {selectedDish.badge && (
-                      <span className="text-[8px] px-2.5 py-0.5 rounded-full border border-[rgba(207,190,145,0.4)] bg-[rgba(207,190,145,0.08)] text-[#CFBE91] tracking-wider uppercase font-medium">
-                        {selectedDish.badge}
+                  
+                  {/* Category + Brand Line */}
+                  <div className="flex items-center justify-between gap-2 border-b border-[#222220] pb-3">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-[9px] uppercase tracking-[0.25em] text-[#CFBE91] font-semibold flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-[#CFBE91]" />
+                        {selectedDish.categoryName}
                       </span>
-                    )}
+                      {selectedDish.badge && (
+                        <span className="text-[8px] px-2.5 py-0.5 rounded-full border border-[rgba(207,190,145,0.45)] bg-[rgba(207,190,145,0.12)] text-[#CFBE91] tracking-wider uppercase font-semibold">
+                          ✦ {selectedDish.badge}
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-[7.5px] uppercase tracking-[0.3em] text-[#EFE7D2]/50 font-serif hidden sm:inline">
+                      EST. 2024
+                    </span>
                   </div>
 
                   {/* Dish Title */}
                   <h3
-                    className="font-serif text-[#EFE7D2] leading-tight tracking-[-0.01em]"
-                    style={{ fontSize: 'clamp(20px, 2.4vw, 28px)' }}
+                    className="font-serif text-[#EFE7D2] leading-[1.1] tracking-[-0.01em]"
+                    style={{ fontSize: 'clamp(22px, 3vw, 32px)' }}
                   >
                     {selectedDish.name}
                   </h3>
 
-                  {/* Divider line */}
-                  <div className="w-12 h-[1px] bg-gradient-to-r from-[#CFBE91] to-transparent" />
+                  {/* Diamond Divider */}
+                  <div className="flex items-center gap-3 py-0.5">
+                    <div className="w-8 h-[1px] bg-gradient-to-r from-[#CFBE91] to-transparent" />
+                    <span className="w-1.5 h-1.5 rotate-45 bg-[#CFBE91]/80" />
+                    <div className="flex-1 h-[1px] bg-gradient-to-r from-transparent to-[#222220]" />
+                  </div>
 
-                  {/* Description */}
-                  <p className="text-[13px] text-[#EFE7D2]/85 leading-relaxed font-sans">
+                  {/* Description Copy */}
+                  <p className="text-[13.5px] text-[#EFE7D2]/88 leading-relaxed font-sans font-normal">
                     {selectedDish.description}
                   </p>
+
+                  {/* Culinary Tags */}
+                  <div className="grid grid-cols-2 gap-2 pt-2">
+                    <div className="p-2.5 rounded-xl bg-[#181817]/90 border border-[#262624] flex items-center gap-2.5">
+                      <div className="w-6 h-6 rounded-lg bg-[rgba(207,190,145,0.1)] flex items-center justify-center text-[#CFBE91] flex-shrink-0">
+                        <Utensils className="w-3 h-3" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[7.5px] uppercase tracking-wider text-[#CFBE91] block font-medium">Elaboración</span>
+                        <span className="text-[10px] text-[#EFE7D2]/80 truncate block font-sans">Ingredientes Frescos del Día</span>
+                      </div>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-[#181817]/90 border border-[#262624] flex items-center gap-2.5">
+                      <div className="w-6 h-6 rounded-lg bg-[rgba(207,190,145,0.1)] flex items-center justify-center text-[#CFBE91] flex-shrink-0">
+                        <Sparkles className="w-3 h-3" />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="text-[7.5px] uppercase tracking-wider text-[#CFBE91] block font-medium">Tradición</span>
+                        <span className="text-[10px] text-[#EFE7D2]/80 truncate block font-sans">Receta de Autor Hajung</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Booking CTA button inside modal */}
-                <div className="pt-6 mt-6 border-t border-[#222220]">
+                {/* ── CTA Action Bar ── */}
+                <div className="pt-6 mt-6 border-t border-[#222220] flex flex-col sm:flex-row items-center gap-3">
                   <button
                     onClick={() => {
                       setSelectedDish(null);
                       onOpenReservation();
                     }}
-                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#CFBE91] hover:bg-[#EFE7D2] text-[#0A0B0A] text-[10.5px] uppercase tracking-[0.2em] font-semibold transition-all duration-300 hover:scale-[1.01] active:scale-[0.98] shadow-[0_4px_20px_rgba(207,190,145,0.2)]"
+                    className="group/btn relative w-full flex-1 flex items-center justify-center gap-2.5 py-3.5 px-6 rounded-2xl bg-[#CFBE91] hover:bg-[#EFE7D2] text-[#0A0B0A] text-[11px] uppercase tracking-[0.22em] font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-[0_6px_28px_rgba(207,190,145,0.28)] hover:shadow-[0_8px_36px_rgba(207,190,145,0.5)] overflow-hidden"
                   >
-                    <Utensils className="w-3.5 h-3.5" />
-                    <span>{t('modalBookThis')}</span>
+                    <Utensils className="w-3.5 h-3.5 relative z-10 transition-transform duration-300 group-hover/btn:scale-110" />
+                    <span className="relative z-10">{t('modalBookThis')}</span>
+                    <ArrowUpRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    <div className="absolute inset-0 shimmer-gold opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  </button>
+
+                  <button
+                    onClick={() => setSelectedDish(null)}
+                    className="w-full sm:w-auto px-5 py-3.5 rounded-2xl border border-[#333330] hover:border-[#CFBE91]/50 text-[#EFE7D2]/70 hover:text-[#EFE7D2] text-[10px] uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:bg-[#1C1C1B]"
+                  >
+                    {t('modalClose')}
                   </button>
                 </div>
+
               </div>
             </motion.div>
           </motion.div>
